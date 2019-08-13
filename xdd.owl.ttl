@@ -40,7 +40,7 @@ xdd:dateRange
   a rdfs:Datatype ;
   rdfs:label "Date Range"@en ;
   dcog:refines xdd:range ;
-  rdfs:comment "A date (YYYYMMDD) or an uncertain date range [YYYYMMDD1,YYYYMMDD2]. Enables uncertainty to be encoded directly in the data"@en .
+  rdfs:comment "A date (YYYY-MM-DD) or an uncertain date range [YYYY-MM-DD1,YYYY-MM-DD2]. Enables uncertainty to be encoded directly in the data"@en .
 
 xdd:gYearRange
   a rdfs:Datatype ;
@@ -64,7 +64,7 @@ xdd:pesel
   a rdfs:Datatype ;
   rdfs:label "PESEL"@en ;
   dcog:refines xsd:integer ;
-  rdfs:comment "A Polish official PESEL ID: https://en.wikipedia.org/wiki/PESEL"@en .
+  rdfs:comment "A Polish official PESEL ID. see: https://en.wikipedia.org/wiki/PESEL"@en .
 
 xdd:email
   a rdfs:Datatype ;
