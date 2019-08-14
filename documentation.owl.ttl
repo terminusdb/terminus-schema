@@ -483,7 +483,7 @@ doc:ContentItem
 
 doc:Image
   rdfs:label "Image"@en ;
-  rdfs:comment "An image "@en ;
+  rdfs:comment "An image"@en ;
   a owl:Class ;
   rdfs:subClassOf doc:ContentItem .
 
