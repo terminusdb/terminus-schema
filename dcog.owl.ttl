@@ -1,7 +1,7 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcog: <https://datachemist.net/ontology/dcog#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcog: <https://datachemist.net/ontology/dcog#> .
 
 <https://datachemist.net/ontology/dcog>
   a owl:Ontology ;
