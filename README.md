@@ -7,28 +7,31 @@ On top of these core ontologies, the terminus DB ontologies define the governanc
 The specific ontologies and how they are used by Terminus DB are detailed below. 
 
 ## Terminus - internal state ontology 
-(terminus.owl.ttl)
+terminus.owl.ttl
 
 Contains classes to describe, Agent, User, Role, Capability, Resource, Server, Database and the relationships between them.  
 
 ## Vio - reasoning violations ontology 
-(vio.owl.ttl)
+vio.owl.ttl
 
 Contains classes to describe the quality control error messages produced by the system - both schema checks and instance data checks
 
 ## Documentation - Documentation Ontology 
-(documentation.owl.ttl)
+documentation.owl.ttl
 
 Contains classes to represent the documentation of the system - Content, API & Function Definitions, arguments, types, etc. 
 
-## XDD - Extended Datatypes Ontology - (xdd.owl.ttl)
+## XDD - Extended Datatypes Ontology
+xdd.owl.ttl
 
 Contains 11 extended datatypes which allows use of new datatypes: uncertainty ranges, email, html and json datatypes. 
 
-## Dcogbox - Box Ontology (dcogbox.owl.ttl)
+## Dcogbox - Box Ontology 
+dcogbox.owl.ttl
 
 Contains wrapper classes for all basic datatypes to support 'boxing' of datatype properties for annotation and qualification.  This is a solution to the problem whereby, in RDF, we cannot directly annotate datatype values (literals). Boxing is a solution to the problem that keeps the integrity of the basic underlying triple format intact. 
 
-## Dcog - Core Terminus Ontology (dcog.owl.ttl)
+## Dcog - Core Terminus Ontology 
+dcog.owl.ttl
 
 Contains core classes to describe, Document, Entity, Relationship classes, Annotations, Provenance objects, temporal, geographic and geotemporal scopings. Basic building blocks from which sophisticated and complex data structures can be readily constructed. 
