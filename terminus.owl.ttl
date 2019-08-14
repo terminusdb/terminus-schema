@@ -8,8 +8,7 @@
 <https://datachemist.net/ontology/terminus>
   a owl:Ontology ;
   rdfs:label "Terminus DB Capability Ontology"@en ;
-  rdfs:comment "Ontology describing all of the structure of the documents (capabilities, roles, resources, users, databases) in 
-  the capability database used by Terminus DB to manage the internal state of the server and the databases it manages"@en ;
+  rdfs:comment "Ontology describing all of the structure of the documents (capabilities, roles, resources, users, databases) in the capability database used by Terminus DB to manage the internal state of the server and the databases it manages"@en ;
   dcog:rights "Copyright Data Chemist Ltd. 2017-2019"@en ;
   dcog:author "Gavin Mendel-Gleason"@en, "Kevin C. Feeney"@en;
   dcog:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
