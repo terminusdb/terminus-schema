@@ -1,4 +1,3 @@
-# terminus-ontologies
 # Terminus DB Ontologies
 
 The Terminus Ontologies are a self-documenting, formal description of all of the internal datatypes and classes used by the Terminus DB egnine. They cover such aspects as internal configuration, documents, relationships, time and space and geo-temporal scoping of data and values, annotations and provenance and a range of basic building blocks such as some useful datatypes and classes.  
