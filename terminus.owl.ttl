@@ -104,72 +104,72 @@ terminus:DBAction
   rdfs:label "DB Action"@en ;
   a owl:Class ;
   owl:oneOf (
-   terminus:deletedatabase
-   terminus:updateschema
-   terminus:getschema
-   terminus:createdocument
-   terminus:getdocument
-   terminus:updatedocument
-   terminus:deletedocument
-   terminus:classframe
-   terminus:woqlselect
-   terminus:woqlupdate
+   terminus:delete_database
+   terminus:update_schema
+   terminus:get_schema
+   terminus:create_document
+   terminus:get_document
+   terminus:update_document
+   terminus:delete_document
+   terminus:class_frame
+   terminus:woql_select
+   terminus:woql_update
  ) .
 
-terminus:deletedatabase
+terminus:delete_database
   rdfs:label "Delete Database"@en ;
   rdfs:comment "An action that deletes an entire database"@en ;
   a terminus:DBAction.
 
-terminus:updateschema
-  rdfs:label "updateSchema"@en ;
+terminus:update_schema
+  rdfs:label "Update Schema"@en ;
   rdfs:comment "An action that updates the DB schema"@en ;
   a terminus:DBAction.
 
-terminus:getschema
-  rdfs:label "getSchema"@en ;
+terminus:get_schema
+  rdfs:label "Get Schema"@en ;
   rdfs:comment "An action that fetches the DB Schema"@en ;
   a terminus:DBAction.
 
-terminus:createdocument
-  rdfs:label "createDocument"@en ;
+terminus:create_document
+  rdfs:label "Create Document"@en ;
   rdfs:comment "An action that creates a new document"@en ;
   a terminus:DBAction.
 
-terminus:getdocument
+terminus:get_document
   rdfs:label "Get Document"@en ;
   rdfs:comment "An action that retrieves a document from the DB"@en ;
   a terminus:DBAction.
 
-terminus:updatedocument
+terminus:update_document
   rdfs:label "Update Document"@en ;
   rdfs:comment "An action that updates the contents of a docoument"@en ;
   a terminus:DBAction.
 
-terminus:deletedocument
+terminus:delete_document
   rdfs:label "Delete Document"@en ;
   rdfs:comment "An action that deletes a document from the DB"@en ;
   a terminus:DBAction.
 
-terminus:classframe
+terminus:class_frame
   rdfs:label "Class Frame"@en ;
   rdfs:comment "An action that fetches a Frame JSON for the appropriate Class"@en ;
   a terminus:DBAction.
 
-terminus:createdatabase
+terminus:create_database
   rdfs:label "Create Database"@en ;
   rdfs:comment "An action which creates a new database"@en ;
   a terminus:DBAction.
 
-terminus:woqlselect
-  rdfs:label "woqlSelect"@en ;
+terminus:woql_select
+  rdfs:label "WOQL Select"@en ;
   rdfs:comment "An action which returns the results of a read-only query to the DB"@en ;
-  a terminus:ActionList .
+  a terminus:DBAction .
 
-terminus:woqlupdate
-  rdfs:label "woqlUpdate"@en ;
+terminus:woql_update
+  rdfs:label "WOQL Update"@en ;
   rdfs:comment "An action which returns the results of a read-write query to the DB"@en ;
-  a terminus:ActionList .
+  a terminus:DBAction .
 
 terminus:Resource
   rdfs:label "Resource"@en ;
