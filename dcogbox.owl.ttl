@@ -9,17 +9,7 @@
 <https://datachemist.net/ontology/dcogbox>
   a owl:Ontology ;
   rdfs:label "Data Chemist Box Ontology"@en ;
-  rdfs:comment "Ontology describing basic box classes to allow datatatype values to be easily annotated. This is an approach to 
-  getting around one of the limitations of RDF whereby datatype properties cannot be annotated directly. This solution creates 
-  Specific Classes to "box" the datatype classes, using a deterministic pattern of class and property property names. 
-  All box classes of basic datatypes follow the same pattern. A class that inherits from the Box class is created in the dcogbox 
-  namespace with the same ID as the underlying datatype EXCEPT that the first character is capitalised. 
-  So xsd:string goes to dcogbox:String. The box property then has a property in the dcogbox namespace 
-  that has the same id as the underlying datatype EXCEPT that the first character is lower cased. 
-  So, the dcogbox:String class has a dcogbox:string datatype property with range of xsd:string
-  In almost all cases, this leads to a property with the same ID as the underlying datatype (but with a different namespace). 
-  The exception is xsd datatypes that are all caps (e.g. xsd:NOTATION) which have slightly ugly property names to avoid clashes 
-  with the classes. So we have dcogbox:NOTATION => dcogbox:nOTATION => xsd:NOTATION"@en ;
+  rdfs:comment "Ontology describing basic box classes to allow datatatype values to be easily annotated. This is an approach to getting around one of the limitations of RDF whereby datatype properties cannot be annotated directly. This solution creates  Specific Classes to "box" the datatype classes, using a deterministic pattern of class and property property names.   All box classes of basic datatypes follow the same pattern. A class that inherits from the Box class is created in the dcogbox namespace with the same ID as the underlying datatype EXCEPT that the first character is capitalised.  So xsd:string goes to dcogbox:String. The box property then has a property in the dcogbox namespace  that has the same id as the underlying datatype EXCEPT that the first character is lower cased.   So, the dcogbox:String class has a dcogbox:string datatype property with range of xsd:string In almost all cases, this leads to a property with the same ID as the underlying datatype (but with a different namespace).   The exception is xsd datatypes that are all caps (e.g. xsd:NOTATION) which have slightly ugly property names to avoid clashes  with the classes. So we have dcogbox:NOTATION => dcogbox:nOTATION => xsd:NOTATION"@en ;
   dcog:rights "Copyright Data Chemist Ltd. 2017-2019"@en ;
   dcog:author "Kevin C. Feeney"@en, "Gavin Mendel Gleason"@en ;
   dcog:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .

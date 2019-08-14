@@ -8,8 +8,7 @@
 <https://datachemist.net/ontology/vio>
   a owl:Ontology ;
   rdfs:label "DataChemist Reasoning Violations Ontology"@en ;
-  rdfs:comment "Ontology describing all of the errors and violations that can be detected by the 
-  Terminus DB Engine and the structure of the documents produced"@en ;
+  rdfs:comment "Ontology describing all of the errors and violations that can be detected by the Terminus DB Engine and the structure of the documents produced"@en ;
   dcog:rights "Copyright Data Chemist Ltd. 2017-2019"@en ;
   dcog:author "Gavin Mendel-Gleason"@en, "Kevin C. Feeney"@en, "Kitty Jose"@en;
   dcog:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
