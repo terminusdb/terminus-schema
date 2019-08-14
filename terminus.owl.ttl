@@ -1,8 +1,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix xdd: <https://datachemist.net/ontology/xdd#> .
 @prefix dcog: <https://datachemist.net/ontology/dcog#> .
+@prefix xdd: <https://datachemist.net/ontology/xdd#> .
 @prefix terminus: <https://datachemist.net/ontology/terminus#> .
 
 <https://datachemist.net/ontology/terminus>
@@ -179,7 +179,7 @@ terminus:Database
 
 terminus:Server
   rdfs:label "Server"@en ;
-  rdfs:comment "The Resource Representing the Database Server itself"@en ;
+  rdfs:comment "A Resource Object Representing the Database Server itself"@en ;
   a owl:Class ;
   rdfs:subClassOf terminus:Resource .
 
