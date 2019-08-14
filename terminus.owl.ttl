@@ -1,0 +1,186 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xdd: <https://datachemist.net/ontology/xdd#> .
+@prefix dcog: <https://datachemist.net/ontology/dcog#> .
+@prefix terminus: <https://datachemist.net/ontology/terminus#> .
+
+<https://datachemist.net/ontology/terminus>
+  a owl:Ontology ;
+  rdfs:label "Terminus DB Capability Ontology"@en ;
+  rdfs:comment "Ontology describing all of the structure of the documents (capabilities, roles, resources, users, databases) in 
+  the capability database used by Terminus DB to manage the internal state of the server and the databases it manages"@en ;
+  dcog:rights "Copyright Data Chemist Ltd. 2017-2019"@en ;
+  dcog:author "Gavin Mendel-Gleason"@en, "Kevin C. Feeney"@en;
+  dcog:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
+
+terminus:Agent
+  rdfs:label "Agent"@en ;
+  rdfs:comment "An agent is an abstraction of a thing that can have a capability"@en ;
+  a owl:Class ;
+  dcog:tag dcog:abstract ;
+  rdfs:subClassOf dcog:Entity .
+
+terminus:authority
+  rdfs:label "Has Capability"@en ;
+  rdfs:comment "A property that links an agent to a capability that they possess"@en ;
+  a owl:ObjectProperty ;
+  rdfs:domain terminus:Agent ;
+  rdfs:range terminus:Capability .
+
+terminus:Role
+  rdfs:label "Role"@en ;
+  rdfs:comment "A role is a collection of capabilities that can be allocated to any user"@en ;
+  a owl:Class ;
+  rdfs:subClassOf terminus:Agent .
+
+terminus:User
+  rdfs:label "User"@en ;
+  rdfs:comment "A user of the database"@en ;
+  a owl:Class ;
+  rdfs:subClassOf terminus:Agent .
+
+terminus:email
+  rdfs:label "Email Address"@en ;
+  rdfs:comment "A email address that allows the user to be contacted outside the system"@en ;
+  a owl:DatatypeProperty ;
+  rdfs:domain terminus:User ;
+  rdfs:range xdd:email .
+
+terminus:Capability
+  rdfs:label "Capability"@en ;
+  rdfs:comment "A capability confers access to a database or server action"@en ;
+  dcog:tag dcog:abstract ;
+  a owl:Class ;
+  rdfs:subClassOf dcog:Entity.
+
+terminus:ServerCapability
+  rdfs:label "Server Capability"@en ;
+  rdfs:comment "A capability to carry out some action on the server"@en ;
+  a owl:Class ;
+  rdfs:subClassOf terminus:RestrictServerCapability, terminus:Capability .
+
+terminus:DatabaseCapability
+  rdfs:label "Database Capability"@en ;
+  rdfs:comment "A capability to carry out some action on a specific database"@en ;
+  a owl:Class ;
+  rdfs:subClassOf terminus:RestrictDBCapability, terminus:Capability.
+
+terminus:authority_scope
+  rdfs:label "Capability Scope"@en ;
+  rdfs:comment "The scope of the capability - the resource that the capability applies to"@en ;
+  a owl:ObjectProperty ;
+  rdfs:domain terminus:Capability ;
+  rdfs:range terminus:Resource .
+
+terminus:RestrictServerCapability
+  a owl:Restriction ;
+  rdfs:label "Server Capabilities Apply to Servers";
+  rdfs:comment "Restricts the authority scope of the Server Capability to a Server Resource";
+  owl:onProperty terminus:authority_scope ;
+  owl:allValuesFrom terminus:Server .
+
+terminus:RestrictDBCapability
+  a owl:Restriction ;
+  rdfs:label "Database Capabilities Apply to DBs";
+  rdfs:comment "Restricts the authority scope of the Database Capability to a DB Resource";
+  owl:onProperty terminus:authority_scope ;
+  owl:allValuesFrom terminus:Database .
+
+terminus:action
+  rdfs:label "Action"@en ;
+  rdfs:comment "Refers to a specific API access call"@en ;
+  a owl:ObjectProperty ;
+  rdfs:domain terminus:Capability ;
+  rdfs:range terminus:DBAction.
+
+terminus:DBAction
+  rdfs:label "DB Action"@en ;
+  a owl:Class ;
+  owl:oneOf (
+   terminus:deletedatabase
+   terminus:updateschema
+   terminus:getschema
+   terminus:createdocument
+   terminus:getdocument
+   terminus:updatedocument
+   terminus:deletedocument
+   terminus:classframe
+   terminus:woqlselect
+   terminus:woqlupdate
+ ) .
+
+terminus:deletedatabase
+  rdfs:label "Delete Database"@en ;
+  rdfs:comment "An action that deletes an entire database"@en ;
+  a terminus:DBAction.
+
+terminus:updateschema
+  rdfs:label "updateSchema"@en ;
+  rdfs:comment "An action that updates the DB schema"@en ;
+  a terminus:DBAction.
+
+terminus:getschema
+  rdfs:label "getSchema"@en ;
+  rdfs:comment "An action that fetches the DB Schema"@en ;
+  a terminus:DBAction.
+
+terminus:createdocument
+  rdfs:label "createDocument"@en ;
+  rdfs:comment "An action that creates a new document"@en ;
+  a terminus:DBAction.
+
+terminus:getdocument
+  rdfs:label "Get Document"@en ;
+  rdfs:comment "An action that retrieves a document from the DB"@en ;
+  a terminus:DBAction.
+
+terminus:updatedocument
+  rdfs:label "Update Document"@en ;
+  rdfs:comment "An action that updates the contents of a docoument"@en ;
+  a terminus:DBAction.
+
+terminus:deletedocument
+  rdfs:label "Delete Document"@en ;
+  rdfs:comment "An action that deletes a document from the DB"@en ;
+  a terminus:DBAction.
+
+terminus:classframe
+  rdfs:label "Class Frame"@en ;
+  rdfs:comment "An action that fetches a Frame JSON for the appropriate Class"@en ;
+  a terminus:DBAction.
+
+terminus:createdatabase
+  rdfs:label "Create Database"@en ;
+  rdfs:comment "An action which creates a new database"@en ;
+  a terminus:DBAction.
+
+terminus:woqlselect
+  rdfs:label "woqlSelect"@en ;
+  rdfs:comment "An action which returns the results of a read-only query to the DB"@en ;
+  a terminus:ActionList .
+
+terminus:woqlupdate
+  rdfs:label "woqlUpdate"@en ;
+  rdfs:comment "An action which returns the results of a read-write query to the DB"@en ;
+  a terminus:ActionList .
+
+terminus:Resource
+  rdfs:label "Resource"@en ;
+  rdfs:comment "A resource is a thing that can be accessed and given instructions and for which capabilities can be allocated"@en ;
+  a owl:Class ;
+  dcog:tag dcog:abstract ;
+  rdfs:subClassOf dcog:Entity .
+
+terminus:Database
+  rdfs:label "Database"@en ;
+  rdfs:comment "A resource representing a database hosted on the server"@en ;
+  a owl:Class ;
+  rdfs:subClassOf terminus:Resource .
+
+terminus:Server
+  rdfs:label "Server"@en ;
+  rdfs:comment "The Resource Representing the Database Server itself"@en ;
+  a owl:Class ;
+  rdfs:subClassOf terminus:Resource .
+
