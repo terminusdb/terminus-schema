@@ -184,6 +184,13 @@ terminus:Database
   a owl:Class ;
   rdfs:subClassOf terminus:Resource .
 
+terminus:allow_origin
+  rdfs:label "Allow Requests from"@en ;
+  rdfs:comment "Specify which domains can access this database from the web. Set to "*" for universal access. Sets the HTTP Access-Control-Allow-Origin header. "@en ;
+  a owl:DatatypeProperty;
+  rdfs:domain terminus:Database;
+  rdfs:range xsd:string.
+
 terminus:Server
   rdfs:label "Server"@en ;
   rdfs:comment "A Resource Object Representing the Database Server itself"@en ;
