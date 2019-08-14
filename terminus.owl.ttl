@@ -72,6 +72,13 @@ terminus:authority_scope
   rdfs:domain terminus:Capability ;
   rdfs:range terminus:Resource .
 
+main:resource_includes
+  rdfs:label "Resource Inclusion"@en ;
+  rdfs:comment "Resource A includes Resource B if A resource_includes B i.e. A Server might include a Database within its scope"@en ;
+  a owl:ObjectProperty ;
+  rdfs:domain main:Resource ;
+  rdfs:range main:Resource .
+
 terminus:RestrictServerCapability
   a owl:Restriction ;
   rdfs:label "Server Capabilities Apply to Servers";
