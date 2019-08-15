@@ -2,19 +2,19 @@
 
 The Terminus Ontologies are a self-documenting, formal description of all of the internal datatypes and classes used by the Terminus DB engine. They cover such aspects as internal configuration, documents, relationships, time and space and geo-temporal scoping of data and values, annotations and provenance and a range of basic building blocks such as some useful datatypes and classes.  
 
-On top of these core ontologies, the terminus DB ontologies define the governance structure of the dataase itself - they form the schema of the capability database that governs the system itself. It's ontologies all the way down - every part of the server's configuration and saved state has a schema managed by the system, even the capability database. It's ontologies all the way down, we eat our own dogfood! This makes a lot of sense because we get user-interfaces and forms for free if we use our own system. Using ontologies to describe the internal datatypes and structures allows us to much more easily extend and improve our system as we learn more. 
+On top of these core ontologies, the terminus DB ontologies define the governance structure of the database itself - they form the schema of the capability database that governs the system. It's ontologies all the way down - every part of the server's configuration and saved state has a schema managed by the system, even the capability database. It's ontologies all the way down, we eat our own dogfood! This makes a lot of sense because we get user-interfaces and forms for free if we use our own system. Using ontologies to describe the internal datatypes and structures allows us to much more easily extend and improve our system as we learn more. 
 
 The specific ontologies and how they are used by Terminus DB are detailed below. 
 
-## terminus - internal state ontology 
+## terminus - Terminus Configuration Ontology 
 terminus.owl.ttl
 
-Contains classes to describe, Agent, User, Role, Capability, Resource, Server, Database and the relationships between them.  
+Contains classes to describe and configure, Agent, User, Role, Capability, Resource, Server, Database, their properties and the relationships between them.  
 
-## vio - reasoning violations ontology 
+## vio - Violations Ontology 
 vio.owl.ttl
 
-Contains classes to describe the quality control error messages produced by the system - both schema checks and instance data checks
+Contains classes and properties to describe the format and contents of the quality control error messages produced by the system - both schema checks and instance data checks produce structured error messages that can be traced back to specific fragments of data. 
 
 ## documentation - Documentation Ontology 
 documentation.owl.ttl
@@ -24,7 +24,7 @@ Contains classes to represent the documentation of the system - Content, API & F
 ## xdd - Extended Datatypes Ontology
 xdd.owl.ttl
 
-Contains 11 extended datatypes which allows use of new datatypes: uncertainty ranges, email, html and json datatypes. 
+Contains 11 extended datatypes which allows use of new datatypes: uncertainty ranges, email, url, html and json basic datatypes. 
 
 ## dcogbox - Box Ontology 
 dcogbox.owl.ttl
