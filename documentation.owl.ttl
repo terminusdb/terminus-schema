@@ -43,7 +43,7 @@ doc:encoding
   a owl:ObjectProperty;
   rdfs:label "Encoding"@en;
   rdfs:comment "Language used to encode data"@en;
-  rdfs:range doc:Encoding;
+  rdfs:range doc:DataLanguage;
   rdfs:domain doc:Data .
   
 doc:RestrictDataLanguage 
