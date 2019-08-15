@@ -17,7 +17,7 @@ vio:ViolationReport
   rdfs:label "Violation Report"@en ;
   rdfs:comment "A report of violations found in quality-testing of a document or graph fragment"@en ;
   a owl:Class ;
-  rdfs:subClassOf dcog:Entity, vio:message_cardinality_restriction .
+  rdfs:subClassOf dcog:Entity.
 
 vio:InstanceDataViolationReport
   rdfs:label "Instance Data Violation Report"@en ;
@@ -398,7 +398,7 @@ vio:literal
   rdfs:comment "The datatype object / literal related to the violation"@en ;
   a owl:DatatypeProperty ;
   rdfs:domain vio:ViolationWithDatatypeObject ;
-  rdfs:range xsd:anyBasicType.
+  rdfs:range xsd:anySimpleType.
 
 vio:DatatypeSubsumptionViolation
   rdfs:label "Datatype Subsumption Violation"@en ;
