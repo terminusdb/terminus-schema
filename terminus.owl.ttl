@@ -197,3 +197,31 @@ terminus:Server
   a owl:Class ;
   rdfs:subClassOf terminus:Resource .
 
+terminus:schema
+  a owl:datatypeProperty ;
+  rdfs:label "schema" ;
+  rdfs:comment "A schema graph associated with the given database. All schemas are unioned."@en ;    
+  rdfs:domain terminus:Database ;
+  rdfs:range xsd:anyURI .
+
+terminus:instance
+  a owl:datatypeProperty ;
+  rdfs:label "schema" ;
+  rdfs:comment "An instance graph associated with the given database. All instances are unioned"@en ;
+  rdfs:domain terminus:Database ;
+  rdfs:range xsd:anyURI .
+
+terminus:inference
+  a owl:datatypeProperty ;
+  rdfs:label "schema" ;
+  rdfs:comment "An instance graph associated with the given database. All instances are unioned"@en ;
+  rdfs:domain terminus:Database ;
+  rdfs:range xsd:anyURI .
+
+terminus:id
+  a owl:datatypeProperty ;
+  rdfs:label "id" ;
+  rdfs:comment "The universal identifier of the underlying asset of a given resource."@en ;
+  rdfs:domain terminus:Resource ;
+  rdfs:range xsd:anyURI .
+
