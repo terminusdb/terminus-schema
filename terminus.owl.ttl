@@ -202,21 +202,21 @@ terminus:schema
   rdfs:label "schema" ;
   rdfs:comment "A schema graph associated with the given database. All schemas are unioned."@en ;    
   rdfs:domain terminus:Database ;
-  rdfs:range xsd:anyURI .
+  rdfs:range xsd:string .
 
 terminus:instance
   a owl:datatypeProperty ;
-  rdfs:label "schema" ;
-  rdfs:comment "An instance graph associated with the given database. All instances are unioned"@en ;
+  rdfs:label "instance" ;
+  rdfs:comment "A document / instance graph associated with the given database. All instances are unioned"@en ;
   rdfs:domain terminus:Database ;
-  rdfs:range xsd:anyURI .
+  rdfs:range xsd:string .
 
 terminus:inference
   a owl:datatypeProperty ;
-  rdfs:label "schema" ;
-  rdfs:comment "An instance graph associated with the given database. All instances are unioned"@en ;
+  rdfs:label "inference" ;
+  rdfs:comment "An inference graph associated with the given database. All inferences are unioned"@en ;
   rdfs:domain terminus:Database ;
-  rdfs:range xsd:anyURI .
+  rdfs:range xsd:string .
 
 terminus:id
   a owl:datatypeProperty ;
