@@ -43,20 +43,20 @@ doc:encoding
   a owl:ObjectProperty;
   rdfs:label "Encoding"@en;
   rdfs:comment "Language used to encode data"@en;
-  rdfs:range doc:Encoding;
-  rdfs:domain doc:Encoded .
+  rdfs:range doc:DataLanguage;
+  rdfs:domain doc:Data .
   
 doc:RestrictDataLanguage 
   a owl:Resriction; 
   rdfs:label "Data Language"@en;
-  owl:onProperty doc:encoding";
+  owl:onProperty doc:encoding;
   rdfs:comment "Encoding must be data format"@en;
   owl:allValuesFrom doc:DataLanguage.
   
 doc:RestrictCodingLanguage 
   a owl:Resriction; 
   rdfs:label "Coding Language"@en;
-  owl:onProperty doc:encoding";
+  owl:onProperty doc:encoding;
   rdfs:comment "Encoding must be code format"@en;
   owl:allValuesFrom doc:CodingLanguage.
 
@@ -64,7 +64,7 @@ doc:LibraryDefinition
   rdfs:label "Library Definition"@en ;
   rdfs:comment "A Document containing a complete definition of a library"@en ;
   a owl:Class ;
-  rdfs:subClassOf dcog:Entity dcog:Code .
+  rdfs:subClassOf dcog:Entity, doc:Code .
 
 doc:functions 
   a owl:ObjectProperty;
@@ -81,7 +81,7 @@ doc:endpoints
   rdfs:domain doc:APIDefinition .
 
 doc:method 
-  a owl:ObjectProperty
+  a owl:ObjectProperty;
   rdfs:label "HTTP Method"@en;
   rdfs:comment "The Method (GET, POST, DELETE, PUT) of an API endpoint";
   rdfs:domain doc:APIEndpointSpecification;
@@ -142,20 +142,20 @@ doc:argument
   rdfs:label "Arguments"@en;
   rdfs:comment "Arguments to a function or api";
   rdfs:domain doc:Specification;
-  rdfs:range doc:Argument;
+  rdfs:range doc:Argument.
 
 doc:return
   a owl:ObjectProperty;
-  rdfs:label "Arguments"@en;
-  rdfs:comment "Arguments to a function or api";
+  rdfs:label "Return"@en;
+  rdfs:comment "The data returned by the function";
   rdfs:domain doc:Specification;
-  rdfs:range doc:ReturnValue;
+  rdfs:range doc:ReturnValue.
 
 doc:FunctionSpecification
   rdfs:label "Function Specification"@en ;
   rdfs:comment "A specification of a function"@en ;
   a owl:Class ;
-  rdfs:subClassOf dcog:Specification, doc:NamedEntity, doc:RestrictFunctionArgument, doc:RestrictFunctionReturn .
+  rdfs:subClassOf doc:Specification, doc:NamedEntity, doc:RestrictFunctionArgument, doc:RestrictFunctionReturn .
   
 doc:RestrictFunctionArgument 
   a owl:Restriction; 
@@ -173,7 +173,7 @@ doc:APIEndpointSpecification
   a owl:Class;
   rdfs:label "API Endpoint"@en;
   rdfs:comment "A specification of a particular api endpoint / function / rpc"@en;
-  rdfs:subClassOf dcog:Specification, doc:NamedEntity, doc:RestrictEndpointArgument, doc:RestrictEndpointReturn .
+  rdfs:subClassOf doc:Specification, doc:NamedEntity, doc:RestrictEndpointArgument, doc:RestrictEndpointReturn .
 
 doc:RestrictEndpointArgument 
   a owl:Restriction; 
@@ -188,7 +188,7 @@ doc:RestrictEndpointReturn
   owl:allValuesFrom doc:APIReturnValue.
 
 doc:headers
-  a owl:DatatypeProperty
+  a owl:DatatypeProperty;
   rdfs:label "HTTP Headers"@en;
   rdfs:comment "Headers attached to HTTP Request";
   rdfs:domain doc:APIEndpointSpecification;
@@ -203,22 +203,22 @@ doc:Variable
 doc:type
   rdfs:label "Variable Type"@en;
   rdfs:comment "The type of the data in this variable"@en ;
-  a owl:DataTypeProperty;
-  rdfs:domain doc:Variable
+  a owl:DatatypeProperty;
+  rdfs:domain doc:Variable;
   rdfs:range xsd:string.
 
 doc:summary
   rdfs:label "Summary Description"@en;
   rdfs:comment "Short description of the variable"@en ;
-  a owl:DataTypeProperty;
-  rdfs:domain doc:Variable
+  a owl:DatatypeProperty;
+  rdfs:domain doc:Variable;
   rdfs:range xsd:string.
 
 doc:description
   rdfs:label "Description"@en;
   rdfs:comment "Full description of the variable"@en ;
-  a owl:DataTypeProperty;
-  rdfs:domain doc:Variable
+  a owl:DatatypeProperty;
+  rdfs:domain doc:Variable;
   rdfs:range xsd:string.
 
 doc:Argument
@@ -265,7 +265,7 @@ doc:default_value
   rdfs:comment "Default Value of the argument"@en ;
   a owl:DatatypeProperty ;
   rdfs:domain doc:Argument ;
-  rdfs:range xsd:anyBasicType .
+  rdfs:range xsd:anySimpleType .
 
 doc:APIVariable 
   rdfs:label "API Variable"@en ;
@@ -314,7 +314,7 @@ doc:Encoding
    a owl:Class;
    dcog:tag dcog:abstract;
    rdfs:label "Encoding"@en;
-   rdfs:comment "A class representing a specific encoding of a string";
+   rdfs:comment "A class representing a specific encoding of a string".
 
 doc:DataLanguage
   rdfs:label "Data Language"@en ;
