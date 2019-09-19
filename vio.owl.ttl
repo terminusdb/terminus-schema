@@ -419,6 +419,14 @@ vio:parent_type
   rdfs:domain vio:DatatypeSubsumptionViolation ;
   rdfs:range xsd:string .
 
+vio:base_type
+  rdfs:label "Base Type"@en ;
+  rdfs:comment "Subsumed Type"@en ;
+  a owl:DatatypeProperty ;
+  rdfs:domain vio:ViolationWithDatatypeObject ;
+  rdfs:range xsd:string .
+
+
  vio:PropertyCycleViolation 
    rdfs:label "Property Cycle"@en ;
    rdfs:comment "A cycle in a property inheritance hierarchy"@en ;
@@ -435,3 +443,4 @@ vio:InstanceSubsumptionViolation
    rdfs:comment "An instance subject has an invalid parent"@en. 
    a owl:Class;
    rdfs:subClassOf vio:ViolationWithSubject, vio:ViolationWithParent.
+
