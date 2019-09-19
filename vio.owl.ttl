@@ -119,13 +119,19 @@ vio:ClassInheritanceVioltion
   rdfs:label "Class Inheritance Violation"@en ;
   rdfs:comment "The violation is related to class inheritance"@en ;
   a owl:Class ;
-  rdfs:subClassOf vio:ClassViolation, vio:ParentCardinalityRestriction.
+  rdfs:subClassOf vio:ClassViolation, vio:ViolationWithParent, vio:ParentCardinalityRestriction.
+
+vio:ViolationWithParent
+ a owl:Class;
+ rdfs:label "Violation with Parent"@en;
+ rdfs:comment "A violation which relates to the parent of a class or instance"@en;
+ dcog:tag dcog:abstract.
 
 vio:parent
   rdfs:label "Parent Class"@en ;
   rdfs:comment "The parent class related to the violation"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain vio:ClassInheritanceVioltion ;
+  rdfs:domain vio:ViolationWithParent ;
   rdfs:range xsd:string .
 
 vio:ParentCardinalityRestriction
@@ -412,3 +418,20 @@ vio:parent_type
   a owl:DatatypeProperty ;
   rdfs:domain vio:DatatypeSubsumptionViolation ;
   rdfs:range xsd:string .
+
+ vio:PropertyCycleViolation 
+   rdfs:label "Property Cycle"@en ;
+   rdfs:comment "A cycle in a property inheritance hierarchy"@en ;
+   a owl:Class.
+   
+vio:UntypedInstance
+   rdfs:label "Untyped Instance"@en;
+   rdfs:comment "A subject is used without a rdf:type being defined for it"@en. 
+   a owl:Class;
+   rdfs:subClassOf vio:ViolationWithSubject.
+
+vio:InstanceSubsumptionViolation      
+   rdfs:label "Instance Subsumption Violation"@en;
+   rdfs:comment "An instance subject has an invalid parent"@en. 
+   a owl:Class;
+   rdfs:subClassOf vio:ViolationWithSubject, vio:ViolationWithParent.
