@@ -280,7 +280,7 @@ doc:FunctionVariable
   rdfs:subClassOf doc:Variable .
 
 doc:APIArgument
-  rdfs:label "Argument"@en ;
+  rdfs:label "API Argument"@en ;
   rdfs:comment "An argument to an api endpoint"@en ;
   a owl:Class ;
   rdfs:subClassOf doc:Argument, doc:APIVariable .

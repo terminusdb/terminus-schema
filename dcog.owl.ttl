@@ -1,14 +1,14 @@
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcog: <https://datachemist.net/ontology/dcog#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://datachemist.net/ontology/dcog>
   a owl:Ontology ;
   rdfs:label "DataChemist Core Ontology for Terminus DB"@en ;
   rdfs:comment "Core ontology defining the core predicate and classe building blocks that are used by the Terminus DB engine"@en ;
   dcog:rights "Copyright Data Chemist Ltd 2017-2019"@en ;
-  dcog:author "Kevin C. Feeney"@en;
+  dcog:author "Kevin C. Feeney"@en ;
   dcog:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
 
 dcog:rights
@@ -196,7 +196,7 @@ dcog:SinglePercentageConfidence
   owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
   rdfs:label "Single Percentage"@en ;
   rdfs:comment "Only one confidence percentage value allowed"@en .
-  
+
 dcog:percent
   rdfs:label "Confidence %"@en ;
   rdfs:comment "The confidence, expressed as a percentage probability, that the value us true"@en ;
@@ -210,14 +210,14 @@ dcog:QualifiedByConfidenceTag
   rdfs:label "Qualified By Confidence Tag"@en ;
   rdfs:comment "Signifies objects which can have a confidence value associated with them that is expressed as a semantic tag"@en ;
   rdfs:subClassOf dcog:QualifiedByConfidence .
-  
+
 dcog:confidence_tag
   rdfs:label "Confidence Tag"@en ;
   rdfs:comment "How certain is the data?"@en ;
   a owl:ObjectProperty ;
   rdfs:domain dcog:QualifiedByConfidenceTag ;
   rdfs:range dcog:ConfidenceTag .
-  
+
 dcog:ConfidenceTag
   rdfs:label "Content Tags"@en ;
   rdfs:comment "Tags that can be added to annotations to indicate confidence in the value of some piece data"@en ;
@@ -305,7 +305,7 @@ dcog:target_property
 dcog:relationship_property
   a owl:ObjectProperty ;
   rdfs:label "Relationship Property"@en ;
-  rdfs:domain dcog:Relationship;
+  rdfs:domain dcog:Relationship ;
   rdfs:comment "Used to identify the property of the relationship object that is specifically a source or target property"@en .
 
 dcog:relationship_source

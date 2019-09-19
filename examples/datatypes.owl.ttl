@@ -7,14 +7,9 @@
 
 datatest:DatatypeHolder
   a owl:Class ;
+  rdfs:subClassOf dcog:Entity;
   rdfs:comment "An entity that contains an example of every atomic datatype (non-compound) supported by the DB"@en;
   rdfs:label "Datatype Examples"@en .
-
-datatest:choice 
-  a owl:ObjectProperty;
-  rdfs:label "Choice Type"@en;
-  rdfs:domain datatest:DatatypeHolder;
-  rdfs:range datatest:ExampleChoice.
 
 datatest:link
   a owl:ObjectProperty;

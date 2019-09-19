@@ -9,7 +9,7 @@
 <https://datachemist.net/ontology/dcogbox>
   a owl:Ontology ;
   rdfs:label "Data Chemist Box Ontology"@en ;
-  rdfs:comment "Ontology describing basic box classes to allow datatatype values to be easily annotated. This is an approach to getting around one of the limitations of RDF whereby datatype properties cannot be annotated directly. This solution creates  Specific Classes to "box" the datatype classes, using a deterministic pattern of class and property property names.   All box classes of basic datatypes follow the same pattern. A class that inherits from the Box class is created in the dcogbox namespace with the same ID as the underlying datatype EXCEPT that the first character is capitalised.  So xsd:string goes to dcogbox:String. The box property then has a property in the dcogbox namespace  that has the same id as the underlying datatype EXCEPT that the first character is lower cased.   So, the dcogbox:String class has a dcogbox:string datatype property with range of xsd:string In almost all cases, this leads to a property with the same ID as the underlying datatype (but with a different namespace).   The exception is xsd datatypes that are all caps (e.g. xsd:NOTATION) which have slightly ugly property names to avoid clashes  with the classes. So we have dcogbox:NOTATION => dcogbox:nOTATION => xsd:NOTATION"@en ;
+  rdfs:comment "Ontology describing basic box classes to allow datatatype values to be easily annotated. This is an approach to getting around one of the limitations of RDF whereby datatype properties cannot be annotated directly. This solution creates  Specific Classes to box the datatype classes, using a deterministic pattern of class and property property names.   All box classes of basic datatypes follow the same pattern. A class that inherits from the Box class is created in the dcogbox namespace with the same ID as the underlying datatype EXCEPT that the first character is capitalised.  So xsd:string goes to dcogbox:String. The box property then has a property in the dcogbox namespace  that has the same id as the underlying datatype EXCEPT that the first character is lower cased.   So, the dcogbox:String class has a dcogbox:string datatype property with range of xsd:string In almost all cases, this leads to a property with the same ID as the underlying datatype (but with a different namespace).   The exception is xsd datatypes that are all caps (e.g. xsd:NOTATION) which have slightly ugly property names to avoid clashes  with the classes. So we have dcogbox:NOTATION => dcogbox:nOTATION => xsd:NOTATION"@en ;
   dcog:rights "Copyright Data Chemist Ltd. 2017-2019"@en ;
   dcog:author "Kevin C. Feeney"@en, "Gavin Mendel Gleason"@en ;
   dcog:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
@@ -34,331 +34,331 @@ dcogbox:AnySimpleType
 
 dcogbox:String
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType;
+  rdfs:subClassOf dcogbox:Box;
   rdfs:label "String"@en ;
   rdfs:comment "A string of characters"@en .
 
 dcogbox:Boolean
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType;
+  rdfs:subClassOf dcogbox:Box;
   rdfs:label "Boolean"@en ;
   rdfs:comment "An annotated boolean: true/false value"@en .
 
 dcogbox:Decimal
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType;
+  rdfs:subClassOf dcogbox:Box;
   rdfs:label "Decimal"@en ;
   rdfs:comment "An annotated decimal value"@en .
 
 dcogbox:Double
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Double"@en ;
   rdfs:comment "An annotated double precision floating point number"@en .
 
 dcogbox:Float
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Float"@en ;
   rdfs:comment "An annotated floating point number"@en .
 
 dcogbox:Time
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Time"@en ;
   rdfs:comment "An annotated xsd:time (HH:MM:SS) value"@en .
 
 dcogbox:Date
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Date"@en ;
   rdfs:comment "An annotated xsd:date value (YYYY-MM-DD)"@en .
 
 dcogbox:DateTime
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Date Time"@en ;
   rdfs:comment "An annotated xsd:dateTime value (YYYY-MM-DDTHH:MM:SS)"@en .
 
 dcogbox:DateTimeStamp
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Date-Time Stamp"@en ;
   rdfs:comment "An annotated xsd:dateTimeStamp - (timezone is required)"@en .
 
 dcogbox:GYear
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Year"@en ;
   rdfs:comment "An annotated xsd:gYear (format: YYYY 4 numbers)"@en .
 
 dcogbox:GMonth
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Month"@en ;
   rdfs:comment "An annotated xsd:gMonth datatype (format: --MM)"@en .
 
 dcogbox:GDay
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Day"@en ;
   rdfs:comment "An annotated xsd:gDay (format: ---DD)"@en .
 
 dcogbox:GYearMonth
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Year-Month"@en ;
   rdfs:comment "An annotated xsd:gYearMonth (format: YYYY-MM)"@en .
 
 dcogbox:GMonthDay
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Month-Day"@en ;
   rdfs:comment "An annotated xsd:gMonthDay (format: --MM-DD)"@en .
 
 dcogbox:Duration
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Duration"@en ;
   rdfs:comment "An annotated xsd:duration value (format: PnYnMnDTnHnMnS - e.g P1Y2D - 1 year, 2 days duration)"@en .
 
 dcogbox:YearMonthDuration
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Year-Month Duration"@en ;
   rdfs:comment "An annotated xsd:yearMonthDuration value"@en .
 
 dcogbox:DayTimeDuration
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Day-Time Duration"@en ;
   rdfs:comment "An annotated xsd:dayTimeDuration (Format: PnDTnHnMnS - e.g. P1D2H - 1 day, 2 hours)"@en .
 
 dcogbox:Byte
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Byte"@en ;
   rdfs:comment "An annotated xsd:byte value"@en .
 
 dcogbox:Short
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Short"@en ;
   rdfs:comment "An annotated xsd:short value"@en .
 
 dcogbox:Integer
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Integer"@en ;
   rdfs:comment "An annotated xsd:integer value"@en .
 
 dcogbox:Long
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Long Integer"@en ;
   rdfs:comment "An annotated xsd:long value"@en .
 
 dcogbox:UnsignedByte
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Unsigned Byte"@en ;
   rdfs:comment "An annotated xsd:unsignedByte value"@en .
 
 dcogbox:UnsignedInt
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Unsigned Integer"@en ;
   rdfs:comment "An annotated xsd:unsignedInt value"@en .
 
 dcogbox:UnsignedLong
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Unsigned Long Integer"@en ;
   rdfs:comment "An annotated xsd:unsignedLong value"@en .
 
 dcogbox:PositiveInteger
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Positive Integer"@en ;
   rdfs:comment "An annotated xsd:positiveInteger value"@en .
 
 dcogbox:NonNegativeInteger
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Non Negative Integer"@en ;
   rdfs:comment "An annotated xsd:nonNegativeInteger value >= 0"@en .
 
 dcogbox:NegativeInteger
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Negative Integer"@en ;
   rdfs:comment "An annotated xsd:negativeInteger value <0"@en .
 
 dcogbox:NonPositiveInteger
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Non Positive Integer"@en ;
   rdfs:comment "An annotated xsd:nonPositiveInteger value <= 0"@en .
 
 dcogbox:Base64Binary
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Base 64 Binary"@en ;
   rdfs:comment "An annotated xsd:base64Binary value"@en .
 
 dcogbox:AnyURI
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Any URI"@en ;
   rdfs:comment "An annotated xsd:anyURI value"@en .
 
 dcogbox:Language
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Language Code"@en ;
   rdfs:comment "An annotated xsd:language value"@en .
 
 dcogbox:NormalizedString
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Normalized String"@en ;
   rdfs:comment "An annotated xsd:normalizedString value"@en .
 
 dcogbox:Token
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Token"@en ;
   rdfs:comment "An annotated xsd:token value"@en .
 
 dcogbox:NMTOKEN
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "NMTOKEN"@en ;
   rdfs:comment "An annotated xsd:NMTOKEN value"@en .
 
 dcogbox:Name
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Name"@en ;
   rdfs:comment "An annotated xsd:Name box"@en .
 
 dcogbox:NCName
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "NCName"@en ;
   rdfs:comment "An annotated xsd:NCName box"@en .
 
 dcogbox:NOTATION
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "NOTATION"@en ;
   rdfs:comment "An annotated xsd:NOTATION box"@en .
 
 dcogbox:QName
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "QName"@en ;
   rdfs:comment "An annotated xsd:QName"@en .
 
 dcogbox:ID
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "ID"@en ;
   rdfs:comment "An annotated xsd:ID"@en .
 
 dcogbox:IDREF
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "IDREF"@en ;
   rdfs:comment "An annotated xsd:IDREF box"@en .
 
 dcogbox:ENTITY
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "ENTITY"@en ;
   rdfs:comment "An annotated xsd:ENTITY box"@en .
 
 dcogbox:XMLLiteral
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "XML Literal"@en ;
   rdfs:comment "An annotated rdf:XMLLiteral box"@en .
 
 dcogbox:PlainLiteral
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Plain Literal"@en ;
   rdfs:comment "An annotated rdf:PlainLiteral box"@en .
 
 dcogbox:Literal
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Literal"@en ;
   rdfs:comment "An annotated rdfs:Literal box"@en .
 
 dcogbox:Coordinate
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Geographic Coordinate"@en ;
   rdfs:comment "An annotated coordinate on the earth expressed as longitde / latitude"@en .
 
 dcogbox:CoordinatePolygon
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Geographic Shape"@en ;
   rdfs:comment "An annotated geographic shape - a coordinate polygon"@en .
 
 dcogbox:CoordinatePolyline
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Geographic Line"@en ;
   rdfs:comment "An annotated geographic line of lat/long coordinates"@en .
 
 dcogbox:GYearRange
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Year (or range of years)"@en ;
   rdfs:comment "An annotated year or uncertain range of years"@en .
 
 dcogbox:DateRange
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Date (or date-range)"@en ;
   rdfs:comment "An annotated date or a range of dates YYYY-MM-DD"@en .
 
 dcogbox:IntegerRange
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Integer Range"@en ;
   rdfs:comment "An annotated xdd:integerRange value"@en .
 
 dcogbox:DecimalRange
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Decimal Range"@en ;
   rdfs:comment "An annotated xdd:decimalRange value"@en .
 
 dcogbox:HTML
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "HTML"@en ;
   rdfs:comment "An annotated HTML string value"@en .
 
 dcogbox:JSON
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "JSON"@en ;
   rdfs:comment "An annotated JSON string value"@en .
 
 dcogbox:Url
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "URL"@en ;
   rdfs:comment "An annotated xdd:url value"@en .
 
 dcogbox:Email
   a owl:Class ;
-  rdfs:subClassOf dcogbox:AnySimpleType ;
+  rdfs:subClassOf dcogbox:Box ;
   rdfs:label "Email"@en ;
   rdfs:comment "An annotated xdd:email value - valid email address"@en .
 
