@@ -35,12 +35,6 @@ dcog:Tag
   rdfs:label "Tag"@en ;
   rdfs:comment "Abstract class representing a tag that can be added to an element to qualify it"@en .
 
-dcog:tag
-  rdfs:label "Class Tag"@en ;
-  rdfs:comment "Qualifies a class in the schema with a tag"@en ;
-  a owl:ObjectProperty ;
-  rdfs:range dcog:ClassTag .
-
 dcog:ClassTag
   a owl:Class ;
   rdfs:label "Class Tags"@en ;
@@ -290,22 +284,11 @@ dcog:annotates_property
   rdfs:subPropertyOf dcog:pseudo_property ;
   rdfs:domain dcog:Annotation, dcog:Provenance .
 
-dcog:source_property
-  a owl:ObjectProperty ;
-  rdfs:label "Relationship Source"@en ;
-  rdfs:comment "A special property of a relationship - the property that points to the relationship's source"@en ;
-  rdfs:subPropertyOf dcog:pseudo_property .
-
-dcog:target_property
-  a owl:ObjectProperty ;
-  rdfs:label "Relationship Target"@en ;
-  rdfs:comment "A special property of a relationship - the property that points to the relationship's target"@en ;
-  rdfs:subPropertyOf dcog:pseudo_property .
-
 dcog:relationship_property
   a owl:ObjectProperty ;
   rdfs:label "Relationship Property"@en ;
   rdfs:domain dcog:Relationship ;
+  rdfs:range owl:Thing;
   rdfs:comment "Used to identify the property of the relationship object that is specifically a source or target property"@en .
 
 dcog:relationship_source

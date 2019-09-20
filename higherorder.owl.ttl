@@ -1,0 +1,20 @@
+dcog:tag
+  rdfs:label "Class Tag"@en ;
+  rdfs:comment "Qualifies a class in the schema with a tag"@en ;
+  rdfs:domain owl:Class;
+  a owl:ObjectProperty ;
+  rdfs:range dcog:ClassTag .
+
+dcog:source_property
+  a owl:ObjectProperty ;
+  rdfs:label "Relationship Source"@en ;
+  rdfs:comment "A special property of a relationship - the property that points to the relationship's source"@en ;
+  rdfs:subPropertyOf dcog:pseudo_property .
+
+dcog:target_property
+  a owl:ObjectProperty ;
+  rdfs:label "Relationship Target"@en ;
+  rdfs:comment "A special property of a relationship - the property that points to the relationship's target"@en ;
+  rdfs:subPropertyOf dcog:pseudo_property .
+
+  
