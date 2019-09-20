@@ -204,7 +204,7 @@ terminus:schema
   rdfs:domain terminus:Database ;
   rdfs:range xsd:string .
 
-terminus:document
+terminus:instance
   a owl:datatypeProperty ;
   rdfs:label "document" ;
   rdfs:comment "A document / instance graph associated with the given database. All instance graphs are unioned"@en ;
