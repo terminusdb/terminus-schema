@@ -14,17 +14,20 @@
 dcog:rights
   a owl:DatatypeProperty ;
   rdfs:range xsd:string ;
+  rdfs:domain owl:Ontology ;
   rdfs:label "Rights"@en ;
   rdfs:comment "The statement of rights of the owner"@en .
 
 dcog:author
   a owl:DatatypeProperty ;
+  rdfs:domain owl:Ontology ;
   rdfs:range xsd:string ;
   rdfs:label "Author"@en ;
   rdfs:comment "The authors who developed the ontology"@en .
 
 dcog:license
   a owl:ObjectProperty ;
+  rdfs:domain owl:Ontology ;
   rdfs:range owl:Thing ;
   rdfs:label "License"@en ;
   rdfs:comment "The license governing the use of the resource"@en .
@@ -256,49 +259,25 @@ dcog:Provenance
   rdfs:label "Provenance"@en ;
   rdfs:comment "A Provenance Object contains information about the provenance (source, origin, updates) of the object that it annotates"@en .
 
-dcog:annotates
-  a owl:ObjectProperty ;
-  rdfs:subPropertyOf dcog:pseudo_property ;
-  rdfs:label "Annotates"@en ;
-  rdfs:comment "Generic Annotation Property - a special property that enables automatic interlinking between horizontally partitioned graphs"@en ;
-  rdfs:domain dcog:Annotation, dcog:Provenance ;
-  rdfs:range owl:Thing .
-
-dcog:annotates_value
-  a owl:DatatypeProperty ;
-  rdfs:subPropertyOf dcog:pseudo_property ;
-  rdfs:label "Annotates Value"@en ;
-  rdfs:comment "The annotated value is considered to be qualified by this predicate. This enables annotations of specific datatype property values"@en ;
-  rdfs:domain dcog:Annotation, dcog:Provenance ;
-  rdfs:range xsd:anySimpleType .
-
-dcog:pseudo_property
-  a owl:ObjectProperty ;
-  rdfs:label "Pseudeo Property"@en ;
-  rdfs:comment "A pseudo property is an abstraction of a property that has a special significance for interlinking between documents in the schema"@en .
-
-dcog:annotates_property
-  a owl:DatatypeProperty ;
-  rdfs:label "Annotates Property"@en ;
-  rdfs:comment "The annotated property - with all its values - is considered to be qualified / extended by this predicate. This enables direct annotations on datatype properties"@en ;
-  rdfs:subPropertyOf dcog:pseudo_property ;
-  rdfs:domain dcog:Annotation, dcog:Provenance .
-
 dcog:relationship_property
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
   rdfs:label "Relationship Property"@en ;
   rdfs:domain dcog:Relationship ;
-  rdfs:range owl:Thing;
+  rdfs:range xsd:anyURI ;
   rdfs:comment "Used to identify the property of the relationship object that is specifically a source or target property"@en .
 
 dcog:relationship_source
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
+  rdfs:domain dcog:Relationship ;
+  rdfs:range xsd:anyURI ;
   rdfs:label "Relationship Source"@en ;
   rdfs:comment "Signfies a property that points to the source of a relationship"@en ;
   rdfs:subPropertyOf dcog:relationship_property .
 
 dcog:relationship_target
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
+  rdfs:domain dcog:Relationship ;
+  rdfs:range xsd:anyURI ;
   rdfs:label "Relationship Target"@en ;
   rdfs:comment "A Property that points to the target of a relationship"@en ;
   rdfs:subPropertyOf dcog:relationship_property .

@@ -20,6 +20,27 @@ terminus:Agent
   dcog:tag dcog:abstract ;
   rdfs:subClassOf dcog:Entity .
 
+dcog:rights
+  a owl:DatatypeProperty ;
+  rdfs:range xsd:string ;
+  rdfs:domain owl:Ontology ;
+  rdfs:label "Rights"@en ;
+  rdfs:comment "The statement of rights of the owner"@en .
+
+dcog:author
+  a owl:DatatypeProperty ;
+  rdfs:domain owl:Ontology ;
+  rdfs:range xsd:string ;
+  rdfs:label "Author"@en ;
+  rdfs:comment "The authors who developed the ontology"@en .
+
+dcog:license
+  a owl:ObjectProperty ;
+  rdfs:domain owl:Ontology ;
+  rdfs:range owl:Thing ;
+  rdfs:label "License"@en ;
+  rdfs:comment "The license governing the use of the resource"@en .
+
 terminus:authority
   rdfs:label "Has Capability"@en ;
   rdfs:comment "A property that links an agent to a capability that they possess"@en ;
