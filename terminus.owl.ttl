@@ -219,21 +219,21 @@ terminus:Server
   rdfs:subClassOf terminus:Resource .
 
 terminus:schema
-  a owl:datatypeProperty ;
+  a owl:DatatypeProperty ;
   rdfs:label "schema" ;
   rdfs:comment "A schema graph associated with the given database. All schema graphs are unioned."@en ;    
   rdfs:domain terminus:Database ;
   rdfs:range xsd:string .
 
 terminus:instance
-  a owl:datatypeProperty ;
+  a owl:DatatypeProperty ;
   rdfs:label "document" ;
   rdfs:comment "A document / instance graph associated with the given database. All instance graphs are unioned"@en ;
   rdfs:domain terminus:Database ;
   rdfs:range xsd:string .
 
 terminus:inference
-  a owl:datatypeProperty ;
+  a owl:DatatypeProperty ;
   rdfs:label "inference" ;
   rdfs:comment "An inference graph associated with the given database. All inference graphs are unioned"@en ;
   rdfs:domain terminus:Database ;
@@ -245,7 +245,7 @@ terminus:APIUpdate
   rdfs:comment "A document that amounts to an update request, sent to the API"@en.
 
 terminus:id
-  a owl:datatypeProperty ;
+  a owl:DatatypeProperty ;
   rdfs:label "id" ;
   rdfs:comment "The universal identifier of the underlying asset of a given resource."@en ;
   rdfs:domain terminus:Resource ;
