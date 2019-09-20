@@ -17,4 +17,31 @@ dcog:target_property
   rdfs:comment "A special property of a relationship - the property that points to the relationship's target"@en ;
   rdfs:subPropertyOf dcog:pseudo_property .
 
-  
+dcog:annotates
+  a owl:ObjectProperty ;
+  rdfs:subPropertyOf dcog:pseudo_property ;
+  rdfs:label "Annotates"@en ;
+  rdfs:comment "Generic Annotation Property - a special property that enables automatic interlinking between horizontally partitioned graphs"@en ;
+  rdfs:domain dcog:Annotation, dcog:Provenance ;
+  rdfs:range owl:Thing .
+
+dcog:annotates_value
+  a owl:DatatypeProperty ;
+  rdfs:subPropertyOf dcog:pseudo_property ;
+  rdfs:label "Annotates Value"@en ;
+  rdfs:comment "The annotated value is considered to be qualified by this predicate. This enables annotations of specific datatype property values"@en ;
+  rdfs:domain dcog:Annotation, dcog:Provenance ;
+  rdfs:range xsd:anySimpleType .
+
+dcog:pseudo_property
+  a owl:ObjectProperty ;
+  rdfs:label "Pseudeo Property"@en ;
+  rdfs:comment "A pseudo property is an abstraction of a property that has a special significance for interlinking between documents in the schema"@en .
+
+dcog:annotates_property
+  a owl:DatatypeProperty ;
+  rdfs:label "Annotates Property"@en ;
+  rdfs:comment "The annotated property - with all its values - is considered to be qualified / extended by this predicate. This enables direct annotations on datatype properties"@en ;
+  rdfs:subPropertyOf dcog:pseudo_property ;
+  rdfs:domain dcog:Annotation, dcog:Provenance .
+
