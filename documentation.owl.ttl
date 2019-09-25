@@ -1,520 +1,520 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dcog: <https://datachemist.net/ontology/dcog#> .
-@prefix xdd: <https://datachemist.net/ontology/xdd#> .
-@prefix doc: <https://datachemist.net/ontology/documentation#> .
+@prefix tcs: <http://terminusdb.com/schema/tcs#> .
+@prefix xdd: <http://terminusdb.com/schema/xdd#> .
+@prefix docs: <http://terminusdb.com/schema/documentation#> .
 
-<https://datachemist.net/ontology/documentation>
+<http://terminusdb.com/schema/documentation>
   a owl:Ontology ;
-  rdfs:label "Terminus DB Documentation Ontology"@en ;
+  rdfs:label "Terminus DB Documentation Schema"@en ;
   rdfs:comment "Schema defining the structure of the Terminus DB documentation"@en ;
-  dcog:rights "Copyright Data Chemist Ltd. 2017-2019"@en ;
-  dcog:author "Gavin Mendel-Gleason"@en, "Kevin C. Feeney"@en, "Kitty Jose"@en;
-  dcog:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
+  tcs:rights "Copyright Data Chemist Ltd. 2017-2019"@en ;
+  tcs:author "Gavin Mendel-Gleason"@en, "Kevin C. Feeney"@en, "Kitty Jose"@en;
+  tcs:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
 
-doc:APIDefinition
+docs:APIDefinition
   rdfs:label "API Definition"@en ;
   rdfs:comment "A Document containing a complete definition of an API"@en ;
   a owl:Class ;
-  rdfs:subClassOf dcog:Entity .
+  rdfs:subClassOf tcs:Entity .
 
-doc:Encoded
+docs:Encoded
   rdfs:label "Encoded"@en;
   rdfs:comment "Encoded Content"@en;
   a owl:Class;
-  dcog:tag dcog:abstract.
+  tcs:tag tcs:abstract.
 
-doc:Data
+docs:Data
   rdfs:label "Data"@en;
   rdfs:comment "Encoded Data Object"@en;
   a owl:Class;
-  rdfs:subClassof doc:Encoded, doc:RestrictDataLanguage; 
-  dcog:tag dcog:abstract.
+  rdfs:subClassof docs:Encoded, docs:RestrictDataLanguage; 
+  tcs:tag tcs:abstract.
 
-doc:Code
+docs:Code
   rdfs:label "Code"@en;
   rdfs:comment "Programming Language Code"@en;
   a owl:Class;
-  rdfs:subClassof doc:Encoded, doc:RestrictCodingLanguage; 
-  dcog:tag dcog:abstract.
+  rdfs:subClassof docs:Encoded, docs:RestrictCodingLanguage; 
+  tcs:tag tcs:abstract.
 
-doc:encoding
+docs:encoding
   a owl:ObjectProperty;
   rdfs:label "Encoding"@en;
   rdfs:comment "Language used to encode data"@en;
-  rdfs:range doc:DataLanguage;
-  rdfs:domain doc:Data .
+  rdfs:range docs:DataLanguage;
+  rdfs:domain docs:Data .
   
-doc:RestrictDataLanguage 
+docs:RestrictDataLanguage 
   a owl:Resriction; 
   rdfs:label "Data Language"@en;
-  owl:onProperty doc:encoding;
+  owl:onProperty docs:encoding;
   rdfs:comment "Encoding must be data format"@en;
-  owl:allValuesFrom doc:DataLanguage.
+  owl:allValuesFrom docs:DataLanguage.
   
-doc:RestrictCodingLanguage 
+docs:RestrictCodingLanguage 
   a owl:Resriction; 
   rdfs:label "Coding Language"@en;
-  owl:onProperty doc:encoding;
+  owl:onProperty docs:encoding;
   rdfs:comment "Encoding must be code format"@en;
-  owl:allValuesFrom doc:CodingLanguage.
+  owl:allValuesFrom docs:CodingLanguage.
 
-doc:LibraryDefinition
+docs:LibraryDefinition
   rdfs:label "Library Definition"@en ;
   rdfs:comment "A Document containing a complete definition of a library"@en ;
   a owl:Class ;
-  rdfs:subClassOf dcog:Entity, doc:Code .
+  rdfs:subClassOf tcs:Entity, docs:Code .
 
-doc:functions 
+docs:functions 
   a owl:ObjectProperty;
   rdfs:label "Library Functions"@en;
   rdfs:comment "The functions that make up the library";
-  rdfs:range doc:FunctionSpecification;
-  rdfs:domain doc:LibraryDefinition.
+  rdfs:range docs:FunctionSpecification;
+  rdfs:domain docs:LibraryDefinition.
 
-doc:endpoints
+docs:endpoints
   a owl:ObjectProperty;
   rdfs:label "API Endpoints"@en;
   rdfs:comment "The API endpoints / functions that make up the API";
-  rdfs:range doc:APIEndpointSpecification;
-  rdfs:domain doc:APIDefinition .
+  rdfs:range docs:APIEndpointSpecification;
+  rdfs:domain docs:APIDefinition .
 
-doc:method 
+docs:method 
   a owl:ObjectProperty;
   rdfs:label "HTTP Method"@en;
   rdfs:comment "The Method (GET, POST, DELETE, PUT) of an API endpoint";
-  rdfs:domain doc:APIEndpointSpecification;
-  rdfs:range doc:HTTPMethod.
+  rdfs:domain docs:APIEndpointSpecification;
+  rdfs:range docs:HTTPMethod.
 
-doc:HTTPMethod
+docs:HTTPMethod
   rdfs:label "HTTP Method"@en ;
-  rdfs:subClassOf dcog:Enumerated;
+  rdfs:subClassOf tcs:Enumerated;
   a owl:Class ;
   owl:oneOf (
-   doc:get
-   doc:put
-   doc:post
-   doc:delete
+   docs:get
+   docs:put
+   docs:post
+   docs:delete
  ) .
 
-doc:post
+docs:post
   rdfs:label "POST"@en ;
   rdfs:comment "A HTTP POST Request"@en ;
-  a doc:HTTPMethod.
+  a docs:HTTPMethod.
 
-doc:put
+docs:put
   rdfs:label "PUT"@en ;
   rdfs:comment "A HTTP PUT Request"@en ;
-  a doc:HTTPMethod.
+  a docs:HTTPMethod.
 
-doc:get
+docs:get
   rdfs:label "GET"@en ;
   rdfs:comment "A HTTP GET Request"@en ;
-  a doc:HTTPMethod.
+  a docs:HTTPMethod.
 
-doc:delete
+docs:delete
   rdfs:label "DELETE"@en ;
   rdfs:comment "A HTTP DELETE Request"@en ;
-  a doc:HTTPMethod.
+  a docs:HTTPMethod.
 
-doc:NamedEntity
+docs:NamedEntity
   rdfs:label "Named Entity"@en ;
   rdfs:comment "A named entity"@en ;
   a owl:Class .
 
-doc:name
+docs:name
   rdfs:label "Name"@en ;
   rdfs:comment "The name by which the entity is refered to (computer name)"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain doc:NamedEntity ;
+  rdfs:domain docs:NamedEntity ;
   rdfs:range xsd:string .
 
-doc:Specification
-  dcog:tag dcog:abstract;
+docs:Specification
+  tcs:tag tcs:abstract;
   rdfs:label "Specification"@en ;
   rdfs:comment "A formal specification of an API or function"@en ;
   a owl:Class;
-  rdfs:subClassOf dcog:Entity.
+  rdfs:subClassOf tcs:Entity.
   
-doc:argument 
+docs:argument 
   a owl:ObjectProperty;
   rdfs:label "Arguments"@en;
   rdfs:comment "Arguments to a function or api";
-  rdfs:domain doc:Specification;
-  rdfs:range doc:Argument.
+  rdfs:domain docs:Specification;
+  rdfs:range docs:Argument.
 
-doc:return
+docs:return
   a owl:ObjectProperty;
   rdfs:label "Return"@en;
   rdfs:comment "The data returned by the function";
-  rdfs:domain doc:Specification;
-  rdfs:range doc:ReturnValue.
+  rdfs:domain docs:Specification;
+  rdfs:range docs:ReturnValue.
 
-doc:FunctionSpecification
+docs:FunctionSpecification
   rdfs:label "Function Specification"@en ;
   rdfs:comment "A specification of a function"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:Specification, doc:NamedEntity, doc:RestrictFunctionArgument, doc:RestrictFunctionReturn .
+  rdfs:subClassOf docs:Specification, docs:NamedEntity, docs:RestrictFunctionArgument, docs:RestrictFunctionReturn .
   
-doc:RestrictFunctionArgument 
+docs:RestrictFunctionArgument 
   a owl:Restriction; 
   rdfs:label "Restrict Types of function argument";
-  owl:onProperty doc:argument;
-  owl:allValuesFrom doc:FunctionArgument.
+  owl:onProperty docs:argument;
+  owl:allValuesFrom docs:FunctionArgument.
 
-doc:RestrictFunctionReturn 
+docs:RestrictFunctionReturn 
   a owl:Restriction; 
   rdfs:label "Restrict Types of function return";
-  owl:onProperty doc:return;
-  owl:allValuesFrom doc:FunctionReturnValue.
+  owl:onProperty docs:return;
+  owl:allValuesFrom docs:FunctionReturnValue.
 
-doc:APIEndpointSpecification
+docs:APIEndpointSpecification
   a owl:Class;
   rdfs:label "API Endpoint"@en;
   rdfs:comment "A specification of a particular api endpoint / function / rpc"@en;
-  rdfs:subClassOf doc:Specification, doc:NamedEntity, doc:RestrictEndpointArgument, doc:RestrictEndpointReturn .
+  rdfs:subClassOf docs:Specification, docs:NamedEntity, docs:RestrictEndpointArgument, docs:RestrictEndpointReturn .
 
-doc:RestrictEndpointArgument 
+docs:RestrictEndpointArgument 
   a owl:Restriction; 
   rdfs:label "Restrict Types of api endpoint argument";
-  owl:onProperty doc:argument;
-  owl:allValuesFrom doc:APIArgument.
+  owl:onProperty docs:argument;
+  owl:allValuesFrom docs:APIArgument.
 
-doc:RestrictEndpointReturn 
+docs:RestrictEndpointReturn 
   a owl:Restriction; 
   rdfs:label "Restrict Types of API endpoint return";
-  owl:onProperty doc:return;
-  owl:allValuesFrom doc:APIReturnValue.
+  owl:onProperty docs:return;
+  owl:allValuesFrom docs:APIReturnValue.
 
-doc:headers
+docs:headers
   a owl:DatatypeProperty;
   rdfs:label "HTTP Headers"@en;
   rdfs:comment "Headers attached to HTTP Request";
-  rdfs:domain doc:APIEndpointSpecification;
+  rdfs:domain docs:APIEndpointSpecification;
   rdfs:range xsd:string.
 
-doc:Variable
+docs:Variable
   rdfs:label "Variable"@en ;
   rdfs:comment "A variable - with type and description and so on"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:NamedEntity .
+  rdfs:subClassOf docs:NamedEntity .
 
-doc:type
+docs:type
   rdfs:label "Variable Type"@en;
   rdfs:comment "The type of the data in this variable"@en ;
   a owl:DatatypeProperty;
-  rdfs:domain doc:Variable;
+  rdfs:domain docs:Variable;
   rdfs:range xsd:string.
 
-doc:summary
+docs:summary
   rdfs:label "Summary Description"@en;
   rdfs:comment "Short description of the variable"@en ;
   a owl:DatatypeProperty;
-  rdfs:domain doc:Variable;
+  rdfs:domain docs:Variable;
   rdfs:range xsd:string.
 
-doc:description
+docs:description
   rdfs:label "Description"@en;
   rdfs:comment "Full description of the variable"@en ;
   a owl:DatatypeProperty;
-  rdfs:domain doc:Variable;
+  rdfs:domain docs:Variable;
   rdfs:range xsd:string.
 
-doc:Argument
+docs:Argument
   rdfs:label "Argument"@en ;
-  dcog:tag dcog:abstract;
+  tcs:tag tcs:abstract;
   rdfs:comment "An argument to a function or api call"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:Variable .
+  rdfs:subClassOf docs:Variable .
 
-doc:ReturnValue
+docs:ReturnValue
   rdfs:label "Return Value"@en ;
   rdfs:comment "A value returned by a function or API call"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:Variable .
+  rdfs:subClassOf docs:Variable .
 
-doc:required
+docs:required
   rdfs:label "Required"@en ;
   rdfs:comment "Defines whether an argument is required or optional"@en ;
   a owl:ObjectProperty ;
-  rdfs:domain doc:Argument ;
-  rdfs:range doc:Optionality .
+  rdfs:domain docs:Argument ;
+  rdfs:range docs:Optionality .
 
-doc:Optionality
+docs:Optionality
   rdfs:label "Optionality"@en ;
-  rdfs:subClassOf dcog:Enumerated;
+  rdfs:subClassOf tcs:Enumerated;
   a owl:Class ;
   owl:oneOf (
-   doc:optional
-   doc:mandatory
+   docs:optional
+   docs:mandatory
  ) .
 
-doc:mandatory
+docs:mandatory
   rdfs:label "Mandatory"@en ;
   rdfs:comment "Mandtory - must be present"@en ;
-  a doc:Optionality.
+  a docs:Optionality.
 
-doc:optional
+docs:optional
   rdfs:label "Optional"@en ;
   rdfs:comment "Optional - does not have to be present"@en ;
-  a doc:Optionality.
+  a docs:Optionality.
 
-doc:default_value
+docs:default_value
   rdfs:label "Default Value"@en ;
   rdfs:comment "Default Value of the argument"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain doc:Argument ;
+  rdfs:domain docs:Argument ;
   rdfs:range xsd:anySimpleType .
 
-doc:APIVariable 
+docs:APIVariable 
   rdfs:label "API Variable"@en ;
   rdfs:comment "A variable defined for an API"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:Variable, doc:Data .
+  rdfs:subClassOf docs:Variable, docs:Data .
 
-doc:FunctionVariable 
+docs:FunctionVariable 
   rdfs:label "API Variable"@en ;
   rdfs:comment "A variable defined for an API"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:Variable .
+  rdfs:subClassOf docs:Variable .
 
-doc:APIArgument
+docs:APIArgument
   rdfs:label "API Argument"@en ;
   rdfs:comment "An argument to an api endpoint"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:Argument, doc:APIVariable .
+  rdfs:subClassOf docs:Argument, docs:APIVariable .
 
-doc:APIReturnValue
+docs:APIReturnValue
   rdfs:label "API Return Value"@en ;
   rdfs:comment "A value returned by an API call"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:ReturnValue, doc:APIVariable .
+  rdfs:subClassOf docs:ReturnValue, docs:APIVariable .
 
-doc:FunctionArgument
+docs:FunctionArgument
   rdfs:label "Function Argument"@en ;
   rdfs:comment "A value passed to a function"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:Argument, doc:FunctionVariable .
+  rdfs:subClassOf docs:Argument, docs:FunctionVariable .
   
-doc:order
+docs:order
   rdfs:label "Order"@en ;
   rdfs:comment "The position of the argument in the call (starting from 0)"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain doc:FunctionArgument ;
+  rdfs:domain docs:FunctionArgument ;
   rdfs:range xsd:nonNegativeInteger .
 
-doc:FunctionReturnValue
+docs:FunctionReturnValue
   rdfs:label "Function Return Value"@en ;
   rdfs:comment "A value returned by a function or API call"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:ReturnValue.
+  rdfs:subClassOf docs:ReturnValue.
 
-doc:Encoding 
+docs:Encoding 
    a owl:Class;
-   dcog:tag dcog:abstract;
+   tcs:tag tcs:abstract;
    rdfs:label "Encoding"@en;
    rdfs:comment "A class representing a specific encoding of a string".
 
-doc:DataLanguage
+docs:DataLanguage
   rdfs:label "Data Language"@en ;
-  rdfs:subClassOf doc:Encoding;
+  rdfs:subClassOf docs:Encoding;
   a owl:Class ;
   owl:oneOf (
-   doc:json
-   doc:text
-   doc:jsonld
-   doc:css
-   doc:ttl
-   doc:html
-   doc:owl
-   doc:csv
+   docs:json
+   docs:text
+   docs:jsonld
+   docs:css
+   docs:ttl
+   docs:html
+   docs:owl
+   docs:csv
  ) .
 
-doc:json
+docs:json
   rdfs:label "JSON"@en ;
   rdfs:comment "JSON - Javascript Object Notation"@en ;
-  a doc:DataLanguage .
+  a docs:DataLanguage .
 
-doc:css
+docs:css
   rdfs:label "CSS"@en ;
   rdfs:comment "Cascading Style Sheet"@en ;
-  a doc:DataLanguage .
+  a docs:DataLanguage .
 
-doc:text
+docs:text
   rdfs:label "Text"@en ;
   rdfs:comment "Plain Text Encoding"@en ;
-  a doc:DataLanguage .
+  a docs:DataLanguage .
 
-doc:owl
+docs:owl
   rdfs:label "OWL"@en ;
   rdfs:comment "OWL Web Ontology Language"@en ;
-  a doc:DataLanguage .
+  a docs:DataLanguage .
 
-doc:html
+docs:html
   rdfs:label "HTML"@en ;
   rdfs:comment "HTML Markup"@en ;
-  a doc:DataLanguage .
+  a docs:DataLanguage .
 
-doc:csv
+docs:csv
   rdfs:label "CSV"@en ;
   rdfs:comment "Comma Separated Value Data"@en ;
-  a doc:DataLanguage .
+  a docs:DataLanguage .
 
-doc:ttl
+docs:ttl
   rdfs:label "RDF (Turtle)"@en ;
   rdfs:comment "RDF in turtle format"@en ;
-  a doc:DataLanguage .
+  a docs:DataLanguage .
 
-doc:jsonld
+docs:jsonld
   rdfs:label "JSON-LD"@en ;
   rdfs:comment "JSON-LD standard format"@en ;
-  a doc:DataLanguage .
+  a docs:DataLanguage .
 
-doc:CodingLanguage
+docs:CodingLanguage
   rdfs:label "Coding Language"@en ;
-  rdfs:subClassOf doc:Encoding;
+  rdfs:subClassOf docs:Encoding;
   a owl:Class ;
   owl:oneOf (
-   doc:javascript
-   doc:python
-   doc:rust
-   doc:prolog
-   doc:haskell
-   doc:agda
-   doc:c
-   doc:php
-   doc:lisp
-   doc:cplus
-   doc:perl
-   doc:csharp
-   doc:java
+   docs:javascript
+   docs:python
+   docs:rust
+   docs:prolog
+   docs:haskell
+   docs:agda
+   docs:c
+   docs:php
+   docs:lisp
+   docs:cplus
+   docs:perl
+   docs:csharp
+   docs:java
  ) .
 
-doc:javascript
+docs:javascript
   rdfs:label "Javascript"@en ;
   rdfs:comment "Javascript Code"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:python
+docs:python
   rdfs:label "Python"@en ;
   rdfs:comment "Python Code"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:rust
+docs:rust
   rdfs:label "Rust"@en ;
   rdfs:comment "Our friends, the careful rusatceans"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:prolog
+docs:prolog
   rdfs:label "Prolog"@en ;
   rdfs:comment "The language of logic"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:haskell
+docs:haskell
   rdfs:label "Haskell"@en ;
   rdfs:comment "Towards the formal"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:agda
+docs:agda
   rdfs:label "Agda"@en ;
   rdfs:comment "Hieroglyphic Type Theoretics"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:c
+docs:c
   rdfs:label "C"@en ;
   rdfs:comment "C systems language"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:php
+docs:php
   rdfs:label "PHP"@en ;
   rdfs:comment "Old web workhorse"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:lisp
+docs:lisp
   rdfs:label "Lisp"@en ;
   rdfs:comment "Functions and inferences"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
   
-doc:cplus
+docs:cplus
   rdfs:label "C++"@en ;
   rdfs:comment "C++ semi-systems language"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:perl
+docs:perl
   rdfs:label "Perl"@en ;
   rdfs:comment "Typewriter scripting"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:csharp
+docs:csharp
   rdfs:label "C#"@en ;
   rdfs:comment "Microsoft Java Alternative"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
    
-doc:java
+docs:java
   rdfs:label "Java"@en ;
   rdfs:comment "Java Factory Factory Bean Language"@en ;
-  a doc:CodingLanguage .
+  a docs:CodingLanguage .
 
-doc:Tutorial
+docs:Tutorial
   a owl:Class;
   rdfs:label "Tutorial"@en;
   rdfs:comment "A tutorial or guide to using a part of the system"@en;
-  rdfs:subClassOf dcog:Entity, doc:ContentContainer.
+  rdfs:subClassOf tcs:Entity, docs:ContentContainer.
 
-doc:ContentContainer
+docs:ContentContainer
   a owl:Class;
-  dcog:tag dcog:abstract;
+  tcs:tag tcs:abstract;
   rdfs:label "Content Container"@en;
   rdfs:comment "A generic content container"@en.
 
-doc:content
+docs:content
   a owl:ObjectProperty;
   rdfs:label "Contents"@en;
   rdfs:comment "The contents of the tutorial"@en;
-  rdfs:domain doc:ContentContainer;
-  rdfs:range doc:ContentItem.  
+  rdfs:domain docs:ContentContainer;
+  rdfs:range docs:ContentItem.  
 
-doc:ContentItem
+docs:ContentItem
   a owl:Class;
-  dcog:tag dcog:abstract;
+  tcs:tag tcs:abstract;
   rdfs:label "Content Item"@en;
   rdfs:comment "A generic content Item"@en.
 
-doc:Image
+docs:Image
   rdfs:label "Image"@en ;
   rdfs:comment "An image"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:ContentItem .
+  rdfs:subClassOf docs:ContentItem .
 
-doc:Section
+docs:Section
   rdfs:label "Section"@en ;
   rdfs:comment "A section in a larger work"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:ContentContainer, doc:ContentItem .
+  rdfs:subClassOf docs:ContentContainer, docs:ContentItem .
 
-doc:CodeSnippet
+docs:CodeSnippet
   rdfs:label "Code Snippet"@en ;
   rdfs:comment "Code Snippet"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:ContentItem, doc:Code.
+  rdfs:subClassOf docs:ContentItem, docs:Code.
 
-doc:Text
+docs:Text
   rdfs:label "Text"@en ;
   rdfs:comment "A section of text content"@en ;
   a owl:Class ;
-  rdfs:subClassOf doc:ContentItem .
+  rdfs:subClassOf docs:ContentItem .
 
-doc:text_contents
+docs:text_contents
   rdfs:label "Text"@en ;
   rdfs:comment "The textual contents"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain doc:Text ;
+  rdfs:domain docs:Text ;
   rdfs:range xsd:string .
   
-doc:url
+docs:url
   rdfs:label "URL"@en ;
   rdfs:comment "The URL where the image can be found"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain doc:Image ;
+  rdfs:domain docs:Image ;
   rdfs:range xdd:url .

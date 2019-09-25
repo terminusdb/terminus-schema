@@ -4,7 +4,7 @@
   "@vocab" : "#",
   "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
   "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
-  "dcog" : "https://datachemist.net/ontology/dcog#",
+  "tcs" : "http://terminusdb.com/schema/tcs#",
   "owl" : "http://www.w3.org/2002/07/owl#",
   "xsd" : "http://www.w3.org/2001/XMLSchema#",
   "v" : "http://terminusdb.com/woql/variable/",

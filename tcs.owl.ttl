@@ -1,284 +1,284 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcog: <https://datachemist.net/ontology/dcog#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix tcs: <http://terminusdb.com/schema/tcs#> .
 
-<https://datachemist.net/ontology/dcog>
+<http://terminusdb.com/schema/tcs>
   a owl:Ontology ;
-  rdfs:label "DataChemist Core Ontology for Terminus DB"@en ;
-  rdfs:comment "Core ontology defining the core predicate and classe building blocks that are used by the Terminus DB engine"@en ;
-  dcog:rights "Copyright Data Chemist Ltd 2017-2019"@en ;
-  dcog:author "Kevin C. Feeney"@en ;
-  dcog:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
+  rdfs:label "Terminus DB Core Schema"@en ;
+  rdfs:comment "Schema defining the core predicate and class building blocks that are used by the Terminus DB engine"@en ;
+  tcs:rights "Copyright Data Chemist Ltd 2017-2019"@en ;
+  tcs:author "Kevin C. Feeney"@en ;
+  tcs:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
 
-dcog:rights
+tcs:rights
   a owl:DatatypeProperty ;
   rdfs:range xsd:string ;
   rdfs:domain owl:Ontology ;
   rdfs:label "Rights"@en ;
   rdfs:comment "The statement of rights of the owner"@en .
 
-dcog:author
+tcs:author
   a owl:DatatypeProperty ;
   rdfs:domain owl:Ontology ;
   rdfs:range xsd:string ;
   rdfs:label "Author"@en ;
   rdfs:comment "The authors who developed the ontology"@en .
 
-dcog:license
+tcs:license
   a owl:ObjectProperty ;
   rdfs:domain owl:Ontology ;
   rdfs:range owl:Thing ;
   rdfs:label "License"@en ;
   rdfs:comment "The license governing the use of the resource"@en .
 
-dcog:Tag
+tcs:Tag
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Tag"@en ;
   rdfs:comment "Abstract class representing a tag that can be added to an element to qualify it"@en .
 
-dcog:ClassTag
+tcs:ClassTag
   a owl:Class ;
   rdfs:label "Class Tags"@en ;
-  rdfs:subClassOf dcog:Enumerated, dcog:Tag ;
+  rdfs:subClassOf tcs:Enumerated, tcs:Tag ;
   rdfs:comment "Tags that can be added to classes to add meta information"@en ;
-  owl:oneOf ( dcog:abstract ) .
+  owl:oneOf ( tcs:abstract ) .
 
-dcog:abstract
+tcs:abstract
   rdfs:label "Abstract"@en ;
   rdfs:comment "Indicates that the class is abstract - purely a logical construct, no base instantiations exist"@en ;
-  a dcog:ClassTag .
+  a tcs:ClassTag .
 
-dcog:Document
+tcs:Document
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Document Class"@en ;
   rdfs:comment "A class used to designate the primary data objects managed by the system - relationships and entities"@en .
 
-dcog:Entity
+tcs:Entity
   a owl:Class ;
-  dcog:tag dcog:abstract ;
-  rdfs:subClassOf dcog:Document ;
+  tcs:tag tcs:abstract ;
+  rdfs:subClassOf tcs:Document ;
   rdfs:label "Entity Class"@en ;
   rdfs:comment "The class of entities (business objects / documents) managed by the system"@en .
 
-dcog:Relationship
+tcs:Relationship
   a owl:Class ;
-  rdfs:subClassOf dcog:Document ;
-  dcog:tag dcog:abstract ;
+  rdfs:subClassOf tcs:Document ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Relationship"@en ;
   rdfs:comment "The class of relationship objects - documents which relate other entities together"@en .
 
-dcog:Enumerated
+tcs:Enumerated
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Enumerated Set"@en ;
   rdfs:comment "A class representing enumerated types / choice sets"@en .
 
-dcog:TemporallyScoped
+tcs:TemporallyScoped
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:comment "The class of things that are temporally scoped"@en ;
   rdfs:label "Temporally Scoped"@en .
 
-dcog:GeographicallyScoped
+tcs:GeographicallyScoped
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:comment "The class of things that are geographically scoped"@en ;
   rdfs:label "Geographically Scoped"@en .
 
-dcog:GeotemporallyScoped
+tcs:GeotemporallyScoped
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:comment "The class of things that are geo-temporally scoped"@en ;
   rdfs:label "Geo Temporally Scoped"@en .
 
-dcog:geography
+tcs:geography
   a owl:ObjectProperty ;
   rdfs:label "Geographic Scope"@en ;
   rdfs:comment "The geographic scope in which the associated data is considered to exist"@en ;
-  rdfs:domain dcog:GeographicallyScoped ;
-  rdfs:range dcog:GeographicScoping .
+  rdfs:domain tcs:GeographicallyScoped ;
+  rdfs:range tcs:GeographicScoping .
 
-dcog:temporality
+tcs:temporality
   a owl:ObjectProperty ;
   rdfs:label "Temporal Scope"@en ;
   rdfs:comment "The time-scope in which the associated data is considered to exist"@en ;
-  rdfs:domain dcog:TemporallyScoped ;
-  rdfs:range dcog:TemporalScoping .
+  rdfs:domain tcs:TemporallyScoped ;
+  rdfs:range tcs:TemporalScoping .
 
-dcog:geotemporality
+tcs:geotemporality
   a owl:ObjectProperty ;
   rdfs:label "Geotemporal Scope"@en ;
   rdfs:comment "The geo-temporal scope in which the associated data is considered to exist"@en ;
-  rdfs:domain dcog:GeotemporallyScoped ;
-  rdfs:range dcog:GeotemporalScoping .
+  rdfs:domain tcs:GeotemporallyScoped ;
+  rdfs:range tcs:GeotemporalScoping .
 
-dcog:TemporalScoping
+tcs:TemporalScoping
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Temporal Scoping"@en ;
   rdfs:comment "Class representing all types of temporal scoping"@en .
 
-dcog:GeotemporalScoping
+tcs:GeotemporalScoping
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Geotemporal Scoping"@en ;
   rdfs:comment "Class representing all types of geotemporal scoping"@en .
 
-dcog:GeographicScoping
+tcs:GeographicScoping
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Geographic Scoping"@en ;
   rdfs:comment "Class representing all types of geographic scoping"@en .
 
-dcog:TimePoint
+tcs:TimePoint
   a owl:Class ;
   rdfs:label "Point in Time"@en ;
   rdfs:comment "Class representing things that are associated with points in time"@en ;
-  dcog:tag dcog:abstract ;
-  rdfs:subClassOf dcog:TemporalScoping, dcog:SingleTimepoint .
+  tcs:tag tcs:abstract ;
+  rdfs:subClassOf tcs:TemporalScoping, tcs:SingleTimepoint .
 
-dcog:TimeRange
+tcs:TimeRange
   rdfs:label "Time Range"@en ;
   a owl:Class ;
   rdfs:comment "A Time Range that may have a start and an end time."@en ;
-  dcog:tag dcog:abstract ;
-  rdfs:subClassOf dcog:TemporalScoping, dcog:SingleRangeLimits .
+  tcs:tag tcs:abstract ;
+  rdfs:subClassOf tcs:TemporalScoping, tcs:SingleRangeLimits .
 
-dcog:start
+tcs:start
   rdfs:label "Start"@en ;
   rdfs:comment "The start of a time range, when the associated data is considered to begin its existance"@en ;
   a owl:ObjectProperty ;
-  rdfs:range dcog:TimePoint ;
-  rdfs:domain dcog:TimeRange .
+  rdfs:range tcs:TimePoint ;
+  rdfs:domain tcs:TimeRange .
 
-dcog:end
+tcs:end
   rdfs:label "End"@en ;
   rdfs:comment "The end of a time range, when the associated data is considered to cease existance"@en ;
   a owl:ObjectProperty ;
-  rdfs:range dcog:TimePoint ;
-  rdfs:domain dcog:TimeRange .
+  rdfs:range tcs:TimePoint ;
+  rdfs:domain tcs:TimeRange .
 
-dcog:SingleRangeLimits
+tcs:SingleRangeLimits
   a owl:Restriction ;
-  owl:onProperty dcog:start, dcog:end ;
+  owl:onProperty tcs:start, tcs:end ;
   owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
   rdfs:label "Single Range"@en ;
   rdfs:comment "Time ranges can have at most 1 start and 1 end"@en .
 
-dcog:SingleTimepoint
+tcs:SingleTimepoint
   a owl:Restriction ;
   owl:cardinality "1"^^xsd:nonNegativeInteger ;
   rdfs:label "Single Time Point"@en ;
   rdfs:comment "Time Points have exactly one value"@en .
 
-dcog:QualifiedByConfidence
+tcs:QualifiedByConfidence
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Qualified by Confidence"@en ;
   rdfs:comment "Class representing all objects that can have an associated confidence qualifier"@en .
 
-dcog:QualifiedByConfidencePercentage
+tcs:QualifiedByConfidencePercentage
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Qualified By Confidence %"@en ;
   rdfs:comment "Signifies objects which can have a confidence value associated with them that is expressed as a demical precentage, 100 - 0"@en ;
-  rdfs:subClassOf dcog:QualifiedByConfidence, dcog:SinglePercentageConfidence .
+  rdfs:subClassOf tcs:QualifiedByConfidence, tcs:SinglePercentageConfidence .
 
-dcog:SinglePercentageConfidence
+tcs:SinglePercentageConfidence
   a owl:Restriction ;
-  owl:onProperty dcog:percent ;
+  owl:onProperty tcs:percent ;
   owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
   rdfs:label "Single Percentage"@en ;
   rdfs:comment "Only one confidence percentage value allowed"@en .
 
-dcog:percent
+tcs:percent
   rdfs:label "Confidence %"@en ;
   rdfs:comment "The confidence, expressed as a percentage probability, that the value us true"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain dcog:QualifiedByConfidencePercentage ;
+  rdfs:domain tcs:QualifiedByConfidencePercentage ;
   rdfs:range xsd:decimal .
 
-dcog:QualifiedByConfidenceTag
+tcs:QualifiedByConfidenceTag
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Qualified By Confidence Tag"@en ;
   rdfs:comment "Signifies objects which can have a confidence value associated with them that is expressed as a semantic tag"@en ;
-  rdfs:subClassOf dcog:QualifiedByConfidence .
+  rdfs:subClassOf tcs:QualifiedByConfidence .
 
-dcog:confidence_tag
+tcs:confidence_tag
   rdfs:label "Confidence Tag"@en ;
   rdfs:comment "How certain is the data?"@en ;
   a owl:ObjectProperty ;
-  rdfs:domain dcog:QualifiedByConfidenceTag ;
-  rdfs:range dcog:ConfidenceTag .
+  rdfs:domain tcs:QualifiedByConfidenceTag ;
+  rdfs:range tcs:ConfidenceTag .
 
-dcog:ConfidenceTag
+tcs:ConfidenceTag
   rdfs:label "Content Tags"@en ;
   rdfs:comment "Tags that can be added to annotations to indicate confidence in the value of some piece data"@en ;
   a owl:Class ;
-  rdfs:subClassOf dcog:Enumerated ;
+  rdfs:subClassOf tcs:Enumerated ;
   owl:oneOf (
-   dcog:inferred
-   dcog:disputed
-   dcog:uncertain
-   dcog:dubious
+   tcs:inferred
+   tcs:disputed
+   tcs:uncertain
+   tcs:dubious
  ) .
 
-dcog:inferred
+tcs:inferred
   rdfs:label "Inferred"@en ;
   rdfs:comment "The value has been logically inferred from other evidence"@en ;
-  a dcog:ConfidenceTag, dcog:ClassTag .
+  a tcs:ConfidenceTag, tcs:ClassTag .
 
-dcog:dubious
+tcs:dubious
   rdfs:label "Dubious"@en ;
   rdfs:comment "The evidence suggests this value is dubious - there is low confidence in its truth"@en ;
-  a dcog:ConfidenceTag .
+  a tcs:ConfidenceTag .
 
-dcog:disputed
+tcs:disputed
   rdfs:label "Disputed"@en ;
   rdfs:comment "The evidence is disputed - some believe this data to be incorrect"@en ;
-  a dcog:ConfidenceTag .
+  a tcs:ConfidenceTag .
 
-dcog:uncertain
+tcs:uncertain
   rdfs:label "Uncertain"@en ;
   rdfs:comment "The evidence has a high degree of uncertainty"@en ;
-  a dcog:ConfidenceTag .
+  a tcs:ConfidenceTag .
 
-dcog:Annotation
+tcs:Annotation
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Annotation"@en ;
   rdfs:comment "An Annotation object is interpreted as qualifying or extending the value of the data it annotates"@en .
 
-dcog:Provenance
+tcs:Provenance
   a owl:Class ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   rdfs:label "Provenance"@en ;
   rdfs:comment "A Provenance Object contains information about the provenance (source, origin, updates) of the object that it annotates"@en .
 
-dcog:relationship_property
+tcs:relationship_property
   a owl:DatatypeProperty ;
   rdfs:label "Relationship Property"@en ;
-  rdfs:domain dcog:Relationship ;
+  rdfs:domain tcs:Relationship ;
   rdfs:range xsd:anyURI ;
   rdfs:comment "Used to identify the property of the relationship object that is specifically a source or target property"@en .
 
-dcog:relationship_source
+tcs:relationship_source
   a owl:DatatypeProperty ;
-  rdfs:domain dcog:Relationship ;
+  rdfs:domain tcs:Relationship ;
   rdfs:range xsd:anyURI ;
   rdfs:label "Relationship Source"@en ;
   rdfs:comment "Signfies a property that points to the source of a relationship"@en ;
-  rdfs:subPropertyOf dcog:relationship_property .
+  rdfs:subPropertyOf tcs:relationship_property .
 
-dcog:relationship_target
+tcs:relationship_target
   a owl:DatatypeProperty ;
-  rdfs:domain dcog:Relationship ;
+  rdfs:domain tcs:Relationship ;
   rdfs:range xsd:anyURI ;
   rdfs:label "Relationship Target"@en ;
   rdfs:comment "A Property that points to the target of a relationship"@en ;
-  rdfs:subPropertyOf dcog:relationship_property .
+  rdfs:subPropertyOf tcs:relationship_property .
 
