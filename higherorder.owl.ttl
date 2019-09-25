@@ -1,47 +1,49 @@
-dcog:tag
+@prefix tcs: <http://terminusdb.com/schema/tcs#> .
+
+tcs:tag
   rdfs:label "Class Tag"@en ;
   rdfs:comment "Qualifies a class in the schema with a tag"@en ;
   rdfs:domain owl:Class;
   a owl:ObjectProperty ;
-  rdfs:range dcog:ClassTag .
+  rdfs:range tcs:ClassTag .
 
-dcog:source_property
+tcs:source_property
   a owl:ObjectProperty ;
   rdfs:label "Relationship Source"@en ;
   rdfs:comment "A special property of a relationship - the property that points to the relationship's source"@en ;
-  rdfs:subPropertyOf dcog:pseudo_property .
+  rdfs:subPropertyOf tcs:pseudo_property .
 
-dcog:target_property
+tcs:target_property
   a owl:ObjectProperty ;
   rdfs:label "Relationship Target"@en ;
   rdfs:comment "A special property of a relationship - the property that points to the relationship's target"@en ;
-  rdfs:subPropertyOf dcog:pseudo_property .
+  rdfs:subPropertyOf tcs:pseudo_property .
 
-dcog:annotates
+tcs:annotates
   a owl:ObjectProperty ;
-  rdfs:subPropertyOf dcog:pseudo_property ;
+  rdfs:subPropertyOf tcs:pseudo_property ;
   rdfs:label "Annotates"@en ;
   rdfs:comment "Generic Annotation Property - a special property that enables automatic interlinking between horizontally partitioned graphs"@en ;
-  rdfs:domain dcog:Annotation, dcog:Provenance ;
+  rdfs:domain tcs:Annotation, tcs:Provenance ;
   rdfs:range owl:Thing .
 
-dcog:annotates_value
+tcs:annotates_value
   a owl:DatatypeProperty ;
-  rdfs:subPropertyOf dcog:pseudo_property ;
+  rdfs:subPropertyOf tcs:pseudo_property ;
   rdfs:label "Annotates Value"@en ;
   rdfs:comment "The annotated value is considered to be qualified by this predicate. This enables annotations of specific datatype property values"@en ;
-  rdfs:domain dcog:Annotation, dcog:Provenance ;
+  rdfs:domain tcs:Annotation, tcs:Provenance ;
   rdfs:range xsd:anySimpleType .
 
-dcog:pseudo_property
+tcs:pseudo_property
   a owl:ObjectProperty ;
   rdfs:label "Pseudeo Property"@en ;
   rdfs:comment "A pseudo property is an abstraction of a property that has a special significance for interlinking between documents in the schema"@en .
 
-dcog:annotates_property
+tcs:annotates_property
   a owl:DatatypeProperty ;
   rdfs:label "Annotates Property"@en ;
   rdfs:comment "The annotated property - with all its values - is considered to be qualified / extended by this predicate. This enables direct annotations on datatype properties"@en ;
-  rdfs:subPropertyOf dcog:pseudo_property ;
-  rdfs:domain dcog:Annotation, dcog:Provenance .
+  rdfs:subPropertyOf tcs:pseudo_property ;
+  rdfs:domain tcs:Annotation, tcs:Provenance .
 

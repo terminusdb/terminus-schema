@@ -1,157 +1,157 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dcog: <https://datachemist.net/ontology/dcog#> .
-@prefix xdd: <https://datachemist.net/ontology/xdd#> .
-@prefix datatest: <https://datachemist.net/ontology/datatest#> .
+@prefix tcs: <http://terminusdb.com/schema/tcs#> .
+@prefix xdd: <http://terminusdb.com/schema/xdd#> .
+@prefix datatypes: <http://terminusdb.com/schema/datatypes#> .
 
-datatest:DatatypeHolder
+datatypes:DatatypeHolder
   a owl:Class ;
-  rdfs:subClassOf dcog:Entity;
+  rdfs:subClassOf tcs:Entity;
   rdfs:comment "An entity that contains an example of every atomic datatype (non-compound) supported by the DB"@en;
   rdfs:label "Datatype Examples"@en .
 
-datatest:link
+datatypes:link
   a owl:ObjectProperty;
   rdfs:label "Document Link Type"@en;
-  rdfs:domain datatest:DatatypeHolder;
-  rdfs:range datatest:DatatypeHolder.  
+  rdfs:domain datatypes:DatatypeHolder;
+  rdfs:range datatypes:DatatypeHolder.  
 
-datatest:coord
+datatypes:coord
   rdfs:label "xdd:coordinate"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:coordinate .
 
-datatest:coordline
+datatypes:coordline
   rdfs:label "xdd:coordinatePolyline"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:coordinatePolyline .
 
-datatest:coordpoly
+datatypes:coordpoly
   rdfs:label "xdd:coordinatePolygon"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:coordinatePolygon .
 
-datatest:dateRange
+datatypes:dateRange
   rdfs:label "xdd:dateRange"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:dateRange .
 
-datatest:gYearRange
+datatypes:gYearRange
   rdfs:label "xdd:gYearRange"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:gYearRange .
 
-datatest:integerRange
+datatypes:integerRange
   rdfs:label "xdd:integerRange"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:integerRange .
 
-datatest:decimalRange
+datatypes:decimalRange
   rdfs:label "xdd:decimalRange"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:decimalRange .
 
-datatest:email
+datatypes:email
   rdfs:label "xdd:email"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:email .
 
-datatest:html
+datatypes:html
   rdfs:label "xdd:html"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:html .
 
-datatest:url
+datatypes:url
   rdfs:label "xdd:url"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:url .
 
-datatest:anySimpleType
+datatypes:anySimpleType
   rdfs:label "xsd:anySimpleType"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:anySimpleType .
 
-datatest:boolean
+datatypes:boolean
   rdfs:label "xsd:boolean"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:boolean .
 
-datatest:decimal
+datatypes:decimal
   rdfs:label "xsd:decimal"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:decimal .
 
-datatest:double
+datatypes:double
   rdfs:label "xsd:double"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:double .
 
-datatest:float
+datatypes:float
   rdfs:label "xsd:float"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:float .
 
-datatest:time
+datatypes:time
   rdfs:label "xsd:time"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:time .
 
-datatest:date
+datatypes:date
   rdfs:label "xsd:date"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:date .
 
-datatest:dateTime
+datatypes:dateTime
   rdfs:label "xsd:dateTime"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:dateTime .
 
-datatest:dateTimeStamp
+datatypes:dateTimeStamp
   rdfs:label "xsd:dateTimeStamp"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:dateTimeStamp .
 
-datatest:gYear
+datatypes:gYear
   rdfs:label "xsd:gYear"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:gYear .
 
-datatest:gYearMonth
+datatypes:gYearMonth
   rdfs:label "xsd:gYearMOnth"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:gYearMonth .
 
-datatest:gMonth
+datatypes:gMonth
   rdfs:label "xsd:gMonth"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:gMonth .
 
-datatest:json
+datatypes:json
   rdfs:label "xdd:JSON"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain datatest:DatatypeHolder ;
+  rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xdd:json .
 

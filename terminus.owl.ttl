@@ -1,40 +1,40 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix dcog: <https://datachemist.net/ontology/dcog#> .
-@prefix xdd: <https://datachemist.net/ontology/xdd#> .
-@prefix terminus: <https://datachemist.net/ontology/terminus#> .
+@prefix tcs: <http://terminusdb.com/schema/tcs#> .
+@prefix xdd: <http://terminusdb.com/schema/xdd#> .
+@prefix terminus: <http://terminusdb.com/schema/terminus#> .
 
-<https://datachemist.net/ontology/terminus>
+<http://terminusdb.com/schema/terminus>
   a owl:Ontology ;
-  rdfs:label "Terminus DB Capability Ontology"@en ;
-  rdfs:comment "Ontology describing all of the structure of the documents (capabilities, roles, resources, users, databases) in the capability database used by Terminus DB to manage the internal state of the server and the databases it manages"@en ;
-  dcog:rights "Copyright Data Chemist Ltd. 2017-2019"@en ;
-  dcog:author "Gavin Mendel-Gleason"@en, "Kevin C. Feeney"@en;
-  dcog:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
+  rdfs:label "Terminus DB Management Schema"@en ;
+  rdfs:comment "Schema describing all of the structure of the documents (capabilities, roles, resources, users, databases) in the capability database used by Terminus DB to manage the internal state of the server and the databases it manages"@en ;
+  tcs:rights "Copyright Data Chemist Ltd. 2017-2019"@en ;
+  tcs:author "Gavin Mendel-Gleason"@en, "Kevin C. Feeney"@en;
+  tcs:license <https://creativecommons.org/licenses/by-sa/2.0/>, <https://www.gnu.org/licenses/gpl-3.0.en.html> .
 
 terminus:Agent
   rdfs:label "Agent"@en ;
   rdfs:comment "An agent is an abstraction of a thing that can have a capability"@en ;
   a owl:Class ;
-  dcog:tag dcog:abstract ;
-  rdfs:subClassOf dcog:Entity .
+  tcs:tag tcs:abstract ;
+  rdfs:subClassOf tcs:Entity .
 
-dcog:rights
+tcs:rights
   a owl:DatatypeProperty ;
   rdfs:range xsd:string ;
   rdfs:domain owl:Ontology ;
   rdfs:label "Rights"@en ;
   rdfs:comment "The statement of rights of the owner"@en .
 
-dcog:author
+tcs:author
   a owl:DatatypeProperty ;
   rdfs:domain owl:Ontology ;
   rdfs:range xsd:string ;
   rdfs:label "Author"@en ;
   rdfs:comment "The authors who developed the ontology"@en .
 
-dcog:license
+tcs:license
   a owl:ObjectProperty ;
   rdfs:domain owl:Ontology ;
   rdfs:range owl:Thing ;
@@ -70,9 +70,9 @@ terminus:email
 terminus:Capability
   rdfs:label "Capability"@en ;
   rdfs:comment "A capability confers access to a database or server action"@en ;
-  dcog:tag dcog:abstract ;
+  tcs:tag tcs:abstract ;
   a owl:Class ;
-  rdfs:subClassOf dcog:Entity.
+  rdfs:subClassOf tcs:Entity.
 
 terminus:ServerCapability
   rdfs:label "Server Capability"@en ;
@@ -196,8 +196,8 @@ terminus:Resource
   rdfs:label "Resource"@en ;
   rdfs:comment "A resource is a thing that can be accessed and given instructions and for which capabilities can be allocated"@en ;
   a owl:Class ;
-  dcog:tag dcog:abstract ;
-  rdfs:subClassOf dcog:Entity .
+  tcs:tag tcs:abstract ;
+  rdfs:subClassOf tcs:Entity .
 
 terminus:Database
   rdfs:label "Database"@en ;
@@ -256,7 +256,7 @@ terminus:document
   rdfs:label "Document"@en;
   rdfs:comment "The document being updated"@en;
   rdfs:domain terminus:APIUpdate;
-  rdfs:range dcog:Entity.
+  rdfs:range tcs:Entity.
   
 terminus:user_key
   a owl:DatatypeProperty;
