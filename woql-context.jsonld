@@ -8,6 +8,7 @@
   "owl" : "http://www.w3.org/2002/07/owl#",
   "xsd" : "http://www.w3.org/2001/XMLSchema#",
   "v" : "http://terminusdb.com/woql/variable/",
+  "terminus" : "https://datachemist.net/ontology/terminus#",
   "select" : {"@type" : "@id"},
   "from" : {"@type" : "@id"}, 
   "and" : {"@type" : "@id"},
@@ -34,6 +35,7 @@
   "times" : {"@type" : "@id"},
   "divide" : {"@type" : "@id"}, 
   "sub" : {"@type" : "@id"},
-  "opt" : {"@type" : "@id"}
+  "opt" : {"@type" : "@id"},
+  "not" : {"@type" : "@id"}  
  }
 }
