@@ -102,15 +102,15 @@ terminus:resource_includes
 
 terminus:RestrictServerCapability
   a owl:Restriction ;
-  rdfs:label "Server Capabilities Apply to Servers";
-  rdfs:comment "Restricts the authority scope of the Server Capability to a Server Resource";
+  rdfs:label "Server Capabilities Apply to Servers"@en;
+  rdfs:comment "Restricts the authority scope of the Server Capability to a Server Resource"@en;
   owl:onProperty terminus:authority_scope ;
   owl:allValuesFrom terminus:Server .
 
 terminus:RestrictDBCapability
   a owl:Restriction ;
-  rdfs:label "Database Capabilities Apply to DBs";
-  rdfs:comment "Restricts the authority scope of the Database Capability to a DB Resource";
+  rdfs:label "Database Capabilities Apply to DBs"@en;
+  rdfs:comment "Restricts the authority scope of the Database Capability to a DB Resource"@en;
   owl:onProperty terminus:authority_scope ;
   owl:allValuesFrom terminus:Database .
 
@@ -220,21 +220,21 @@ terminus:Server
 
 terminus:schema
   a owl:DatatypeProperty ;
-  rdfs:label "schema" ;
+  rdfs:label "schema"@en ;
   rdfs:comment "A schema graph associated with the given database. All schema graphs are unioned."@en ;    
   rdfs:domain terminus:Database ;
   rdfs:range xsd:string .
 
 terminus:instance
   a owl:DatatypeProperty ;
-  rdfs:label "document" ;
+  rdfs:label "document"@en ;
   rdfs:comment "A document / instance graph associated with the given database. All instance graphs are unioned"@en ;
   rdfs:domain terminus:Database ;
   rdfs:range xsd:string .
 
 terminus:inference
   a owl:DatatypeProperty ;
-  rdfs:label "inference" ;
+  rdfs:label "inference"@en ;
   rdfs:comment "An inference graph associated with the given database. All inference graphs are unioned"@en ;
   rdfs:domain terminus:Database ;
   rdfs:range xsd:string .
@@ -246,7 +246,7 @@ terminus:APIUpdate
 
 terminus:id
   a owl:DatatypeProperty ;
-  rdfs:label "id" ;
+  rdfs:label "id"@en ;
   rdfs:comment "The universal identifier of the underlying asset of a given resource."@en ;
   rdfs:domain terminus:Resource ;
   rdfs:range xsd:anyURI .
