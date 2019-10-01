@@ -103,14 +103,14 @@ terminus:resource_includes
 terminus:RestrictServerCapability
   a owl:Restriction ;
   rdfs:label "Server Capabilities Apply to Servers"@en;
-  rdfs:comment "Restricts the authority scope of the Server Capability to a Server Resource";
+  rdfs:comment "Restricts the authority scope of the Server Capability to a Server Resource"@en;
   owl:onProperty terminus:authority_scope ;
   owl:allValuesFrom terminus:Server .
 
 terminus:RestrictDBCapability
   a owl:Restriction ;
   rdfs:label "Database Capabilities Apply to DBs"@en;
-  rdfs:comment "Restricts the authority scope of the Database Capability to a DB Resource";
+  rdfs:comment "Restricts the authority scope of the Database Capability to a DB Resource"@en;
   owl:onProperty terminus:authority_scope ;
   owl:allValuesFrom terminus:Database .
 
