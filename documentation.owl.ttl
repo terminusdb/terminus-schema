@@ -69,21 +69,21 @@ docs:LibraryDefinition
 docs:functions 
   a owl:ObjectProperty;
   rdfs:label "Library Functions"@en;
-  rdfs:comment "The functions that make up the library";
+  rdfs:comment "The functions that make up the library"@en;
   rdfs:range docs:FunctionSpecification;
   rdfs:domain docs:LibraryDefinition.
 
 docs:endpoints
   a owl:ObjectProperty;
   rdfs:label "API Endpoints"@en;
-  rdfs:comment "The API endpoints / functions that make up the API";
+  rdfs:comment "The API endpoints / functions that make up the API"@en;
   rdfs:range docs:APIEndpointSpecification;
   rdfs:domain docs:APIDefinition .
 
 docs:method 
   a owl:ObjectProperty;
   rdfs:label "HTTP Method"@en;
-  rdfs:comment "The Method (GET, POST, DELETE, PUT) of an API endpoint";
+  rdfs:comment "The Method (GET, POST, DELETE, PUT) of an API endpoint"@en;
   rdfs:domain docs:APIEndpointSpecification;
   rdfs:range docs:HTTPMethod.
 
@@ -140,14 +140,14 @@ docs:Specification
 docs:argument 
   a owl:ObjectProperty;
   rdfs:label "Arguments"@en;
-  rdfs:comment "Arguments to a function or api";
+  rdfs:comment "Arguments to a function or api"@en;
   rdfs:domain docs:Specification;
   rdfs:range docs:Argument.
 
 docs:return
   a owl:ObjectProperty;
   rdfs:label "Return"@en;
-  rdfs:comment "The data returned by the function";
+  rdfs:comment "The data returned by the function"@en;
   rdfs:domain docs:Specification;
   rdfs:range docs:ReturnValue.
 
@@ -159,13 +159,13 @@ docs:FunctionSpecification
   
 docs:RestrictFunctionArgument 
   a owl:Restriction; 
-  rdfs:label "Restrict Types of function argument";
+  rdfs:label "Restrict Types of function argument"@en;
   owl:onProperty docs:argument;
   owl:allValuesFrom docs:FunctionArgument.
 
 docs:RestrictFunctionReturn 
   a owl:Restriction; 
-  rdfs:label "Restrict Types of function return";
+  rdfs:label "Restrict Types of function return"@en;
   owl:onProperty docs:return;
   owl:allValuesFrom docs:FunctionReturnValue.
 
@@ -177,20 +177,20 @@ docs:APIEndpointSpecification
 
 docs:RestrictEndpointArgument 
   a owl:Restriction; 
-  rdfs:label "Restrict Types of api endpoint argument";
+  rdfs:label "Restrict Types of api endpoint argument"@en;
   owl:onProperty docs:argument;
   owl:allValuesFrom docs:APIArgument.
 
 docs:RestrictEndpointReturn 
   a owl:Restriction; 
-  rdfs:label "Restrict Types of API endpoint return";
+  rdfs:label "Restrict Types of API endpoint return"@en;
   owl:onProperty docs:return;
   owl:allValuesFrom docs:APIReturnValue.
 
 docs:headers
   a owl:DatatypeProperty;
   rdfs:label "HTTP Headers"@en;
-  rdfs:comment "Headers attached to HTTP Request";
+  rdfs:comment "Headers attached to HTTP Request"@en;
   rdfs:domain docs:APIEndpointSpecification;
   rdfs:range xsd:string.
 
@@ -314,7 +314,7 @@ docs:Encoding
    a owl:Class;
    tcs:tag tcs:abstract;
    rdfs:label "Encoding"@en;
-   rdfs:comment "A class representing a specific encoding of a string".
+   rdfs:comment "A class representing a specific encoding of a string"@en.
 
 docs:DataLanguage
   rdfs:label "Data Language"@en ;
@@ -486,6 +486,12 @@ docs:Image
   rdfs:comment "An image"@en ;
   a owl:Class ;
   rdfs:subClassOf docs:ContentItem .
+
+docs:Section
+  rdfs:label "Section"@en ;
+  rdfs:comment "A section in a larger work"@en ;
+  a owl:Class ;
+  rdfs:subClassOf docs:ContentContainer, docs:ContentItem .
 
 docs:CodeSnippet
   rdfs:label "Code Snippet"@en ;
