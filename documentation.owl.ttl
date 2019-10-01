@@ -487,12 +487,6 @@ docs:Image
   a owl:Class ;
   rdfs:subClassOf docs:ContentItem .
 
-docs:Section
-  rdfs:label "Section"@en ;
-  rdfs:comment "A section in a larger work"@en ;
-  a owl:Class ;
-  rdfs:subClassOf docs:ContentContainer, docs:ContentItem .
-
 docs:CodeSnippet
   rdfs:label "Code Snippet"@en ;
   rdfs:comment "Code Snippet"@en ;
@@ -518,3 +512,30 @@ docs:url
   a owl:DatatypeProperty ;
   rdfs:domain docs:Image ;
   rdfs:range xdd:url .
+
+docs:section
+    a owl:ObjectProperty ;
+    rdfs:comment "The sections in this chapter"@en ;
+    rdfs:domain docs:Chapter ;
+    rdfs:label "Sections"@en ;
+    rdfs:range docs:Section .
+
+docs:Chapter
+    a owl:Class ;
+    rdfs:comment "A full chapter in the documentation"@en ;
+    rdfs:label "A chapter"@en ;
+    rdfs:subClassOf tcs:Entity . 
+    
+docs:Section
+    a owl:Class ;
+    rdfs:comment "A section within a documentation chapter"@en ;
+    rdfs:label "A Section"@en ;
+    rdfs:subClassOf tcs:Entity .    
+
+docs:chapter
+    a owl:ObjectProperty ;
+    rdfs:comment "The chapter that contains this section"@en ;
+    rdfs:domain docs:Section ;
+    rdfs:label "Part of Chapter"@en ;
+    rdfs:range docs:Chapter .
+    

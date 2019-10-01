@@ -138,7 +138,7 @@ datatypes:gYear
   rdfs:range xsd:gYear .
 
 datatypes:gYearMonth
-  rdfs:label "xsd:gYearMOnth"@en ;
+  rdfs:label "xsd:gYearMonth"@en ;
   a owl:DatatypeProperty ;
   rdfs:domain datatypes:DatatypeHolder ;
   rdfs:range xsd:gYearMonth .
