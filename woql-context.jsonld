@@ -33,7 +33,8 @@
   "plus" : {"@type" : "@id"},
   "minus" : {"@type" : "@id"},
   "times" : {"@type" : "@id"},
-  "divide" : {"@type" : "@id"}, 
+  "divide" : {"@type" : "@id"},
+  "concat" : {"@type" : "@id"},
   "sub" : {"@type" : "@id"},
   "opt" : {"@type" : "@id"},
   "not" : {"@type" : "@id"}  
