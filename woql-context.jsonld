@@ -28,6 +28,7 @@
   "less" : {"@type" : "@id"},
   "greater" : {"@type" : "@id"},
   "hash" : {"@type" : "@id"},
+  "as" : {"@type" : "@id"},
   "start" : {"@type" : "@id"},
   "limit" : {"@type" : "@id"},
   "plus" : {"@type" : "@id"},
@@ -37,6 +38,7 @@
   "concat" : {"@type" : "@id"},
   "sub" : {"@type" : "@id"},
   "opt" : {"@type" : "@id"},
-  "not" : {"@type" : "@id"}  
+  "not" : {"@type" : "@id"},
+  "list" : {"@type" : "@id"}  
  }
 }
