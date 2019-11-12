@@ -1,4 +1,4 @@
-{"@context" : 
+{"@context" :
  {"@version": 1.0,
   "@base": "http://terminusdb.com/woql",
   "@vocab" : "#",
@@ -17,13 +17,13 @@
   "triple" : {"@type" : "@id"},
   "quad" : {"@type" : "@id"},
   "delete_triple" : {"@type" : "@id"},
-  "delete_quad" : {"@type" : "@id"},   
+  "delete_quad" : {"@type" : "@id"},
   "add_triple" : {"@type" : "@id"},
   "add_quad" : {"@type" : "@id"},
   "update" : {"@type" : "@id"},
   "delete" : {"@type" : "@id"},
   "isa" : {"@type" : "@id"},
-  "like" : {"@type" : "@id"}, 
+  "like" : {"@type" : "@id"},
   "eq" : {"@type" : "@id"},
   "less" : {"@type" : "@id"},
   "greater" : {"@type" : "@id"},
