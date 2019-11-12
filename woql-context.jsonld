@@ -39,6 +39,7 @@
   "sub" : {"@type" : "@id"},
   "opt" : {"@type" : "@id"},
   "not" : {"@type" : "@id"},
+  "join" : {"@type" : "@id"},
   "list" : {"@type" : "@id"},
   "value" : {"@type" : "@id"}
  }
