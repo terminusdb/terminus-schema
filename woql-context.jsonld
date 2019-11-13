@@ -45,6 +45,7 @@
   "not" : {"@type" : "@id"},
   "join" : {"@type" : "@id"},
   "list" : {"@type" : "@id"},
-  "value" : {"@type" : "@id"}
+  "value" : {"@type" : "@id"},
+  "re" : {"@type" : "@id"}
  }
 }
