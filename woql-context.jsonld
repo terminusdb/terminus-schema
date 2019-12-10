@@ -40,6 +40,7 @@
   "times" : {"@type" : "@id"},
   "divide" : {"@type" : "@id"},
   "concat" : {"@type" : "@id"},
+  "typecast" : {"@type" : "@id"},
   "sub" : {"@type" : "@id"},
   "opt" : {"@type" : "@id"},
   "not" : {"@type" : "@id"},
