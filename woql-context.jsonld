@@ -39,6 +39,7 @@
   "minus" : {"@type" : "@id"},
   "times" : {"@type" : "@id"},
   "divide" : {"@type" : "@id"},
+  "div" : {"@type" : "@id"},
   "concat" : {"@type" : "@id"},
   "hash" : {"@type" : "@id"},
   "idgen" : {"@type" : "@id"},
