@@ -51,6 +51,7 @@
   "join" : {"@type" : "@id"},
   "list" : {"@type" : "@id"},
   "value" : {"@type" : "@id"},
+  "eval" : {"@type" : "@id"},
   "re" : {"@type" : "@id"}
  }
 }
