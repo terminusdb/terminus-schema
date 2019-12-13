@@ -41,6 +41,7 @@
   "divide" : {"@type" : "@id"},
   "div" : {"@type" : "@id"},
   "floor" : {"@type" : "@id"},
+  "length" : {"@type" : "@id"},
   "concat" : {"@type" : "@id"},
   "hash" : {"@type" : "@id"},
   "idgen" : {"@type" : "@id"},
