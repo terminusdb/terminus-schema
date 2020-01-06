@@ -41,6 +41,7 @@
   "plus" : {"@type" : "@id"},
   "minus" : {"@type" : "@id"},
   "times" : {"@type" : "@id"},
+  "exp" : {"@type" : "@id"},
   "divide" : {"@type" : "@id"},
   "div" : {"@type" : "@id"},
   "floor" : {"@type" : "@id"},
