@@ -1,8 +1,8 @@
 	@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-	@prefix doc: <http://195.201.12.87:6365/seshat/document/> .
-	@prefix scm: <http://195.201.12.87:6365/seshat/schema#> .
+	@prefix doc: <http://localhost:6363/seshat/document/> .
+	@prefix scm: <http://localhost:6363/seshat/schema#> .
 	@prefix tcs: <http://terminusdb.com/schema/tcs#> .
-	@prefix tbs: <http://terminusdb.com/schema/tbs#> .
+	@prefix tbs: <http://terminusdb.com/schema/tcs#> .
 	@prefix xdd: <http://terminusdb.com/schema/xdd#> .
 	@prefix vio: <http://terminusdb.com/schema/vio#> .
 	@prefix terminus: <http://terminusdb.com/schema/terminus#> .
@@ -2160,7 +2160,7 @@
 	
 	scm:City
 	  rdfs:label "City"@en ;
-	  rdfs:comment "Cities are represented by a single point on the map that doesn’t change with time. Although it is possible to reflect their spatial expansion dynamically, we chose not to do so in the current implementation."@en ;
+	  rdfs:comment "Cities are represented by a single point on the map that doesnï¿½t change with time. Although it is possible to reflect their spatial expansion dynamically, we chose not to do so in the current implementation."@en ;
 	  a owl:Class ;
 	  rdfs:subClassOf scm:Organisation .
 	
@@ -2225,7 +2225,7 @@
 	
 	scm:FreeFormArea
 	  rdfs:label "Free form area"@en ;
-	  rdfs:comment "Freeform area (FA). This is an area enclosed within a boundary, or a dated set of boundaries. Basically, it is our method for treating an arbitrary shape on the map to which a historical expert wishes to tie certain values of coded variables. Examples include a province within an empire, something with a hole in it, or a ‘southeast corner of a region."@en ;
+	  rdfs:comment "Freeform area (FA). This is an area enclosed within a boundary, or a dated set of boundaries. Basically, it is our method for treating an arbitrary shape on the map to which a historical expert wishes to tie certain values of coded variables. Examples include a province within an empire, something with a hole in it, or a ï¿½southeast corner of a region."@en ;
 	  a owl:Class ;
 	  rdfs:subClassOf scm:UnitOfTerritory .
 	
@@ -3283,7 +3283,7 @@ scm:frequencychoicebox_box
 
 scm:military_levels
   rdfs:label "Military Levels"@en ;
-  rdfs:comment "Number of levels in the military hierarchy. <p>Starts with the commander-in-chief and works down to the private (level 1).</p> <p>Even in primitive societies such as simple chiefdoms it is often possible to distinguish at least two levels – a commander and soldiers. A complex chiefdom would be coded as having three levels. The presence of warrior burials might be the basis for inferring the existence of a military organization. (The lowest military level is always the individual soldier).</p>"@en ;
+  rdfs:comment "Number of levels in the military hierarchy. <p>Starts with the commander-in-chief and works down to the private (level 1).</p> <p>Even in primitive societies such as simple chiefdoms it is often possible to distinguish at least two levels ï¿½ a commander and soldiers. A complex chiefdom would be coded as having three levels. The presence of warrior burials might be the basis for inferring the existence of a military organization. (The lowest military level is always the individual soldier).</p>"@en ;
   a owl:ObjectProperty ;
   rdfs:domain scm:HierarchicalComplexity ;
   rdfs:range tbs:Integer .
@@ -3487,7 +3487,7 @@ scm:professional_lawyers
 
 scm:fineware_standardization
   rdfs:label "Fineware Standardization"@en ;
-  rdfs:comment "To what extent are “fineware” ceramics standardized? [AR-TL-15]"@en ;
+  rdfs:comment "To what extent are ï¿½finewareï¿½ ceramics standardized? [AR-TL-15]"@en ;
   a owl:ObjectProperty ;
   rdfs:domain scm:LoosenessTightness ;
   rdfs:range scm:Standardization .
