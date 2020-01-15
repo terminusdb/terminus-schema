@@ -301,7 +301,7 @@ vio:range
   rdfs:label "Range"@en ;
   rdfs:comment "The class that is the defined as being the range of the invalid property"@en ;
   a owl:DatatypeProperty ;
-  rdfs:domain vio:UntypedPropertyAsRange ;
+  rdfs:domain vio:UntypedPropertyWithRange ;
   rdfs:range xsd:string.
 
 vio:UntypedPropertyWithParent

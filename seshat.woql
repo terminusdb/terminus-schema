@@ -1,0 +1,54 @@
+WOQL.when(
+    WOQL.and(
+    WOQL.group_by(["v:Fid","v:Polity","v:Year"],"v:Point",
+        WOQL.and(
+            WOQL.get(
+            WOQL.as("fid", "v:Fid")
+                .as("Polity_nam", "v:Polity")
+                .as("xcoord", "v:xcoord")
+                .as("ycoord", "v:ycoord")
+                .as("Year", "v:Year")
+                )
+            .remote("https://terminusdb.com/t/data/seshat/csvs/0CE.csv"),
+            WOQL.concat("[v:xcoord,v:ycoord]","v:Point")
+        ),"v:Records"),
+    WOQL.lower("v:Polity","v:Polity_Lower"),
+    WOQL.pad("v:Year",0,4,"v:GYear"),
+    WOQL.concat("doc:v:Polity_Lower","v:Polity_ID"),
+    WOQL.unique("doc:Temporality",["scm:Temporality","v:GYear"],"v:Temporality"),
+    WOQL.concat("[v:GYear,v:GYear]","v:Range"),
+    WOQL.join("v:Records",",","v:Coord_String"),
+    WOQL.concat("[v:Coord_String]","v:Coords"),
+    WOQL.unique("doc:QualifiedPolygon",["scm:QualifiedPolygon","v:Coords"],"v:Territory")
+)).and(
+    WOQL.insert("v:Polity_ID","Polity")
+        .label("v:Polity")
+        .property("territory","v:Territory")
+    WOQL.insert("v:Territory", "scm:QualifiedPolygon")
+        .property("tcs:coordinatePolygon", "v:Coords")
+        .property("temporality","v:Temporality"),
+    WOQL.insert("v:Temporality", "scm:FuzzyLifespanEndpoint")
+        .property("tcs:gYearRange", "xdd:gYearRange")
+)
+
+WOQL.limit(30).get(
+WOQL.as("v:X")
+    .as("v:P")
+    .as("v:Y")
+    )
+.remote("https://terminusdb.com/t/data/seshat/seshat_main_export_graph.ttl",{"type":"turtle"})
+
+
+WOQL.when(
+    WOQL.and(
+        WOQL.get(
+        WOQL.as("v:X")
+            .as("v:P")
+            .as("v:Y")
+            )
+        .remote("https://terminusdb.com/t/data/seshat/seshat_main_export_graph.ttl",{"type":"turtle"}),
+        WOQL.eq("v:Y","http://dacura.scss.tcd.ie/seshat/ontology/seshat#Polity"),
+        WOQL.eq("v:P","rdf:type"),
+        WOQL.re(".*/candidate/(.*)","v:X",["v:All","v:Polity_Extension"]),
+        WOQL.concat("doc:v:Polity_Extension","v:Polity_ID")
+    )).add_triple("v:Polity_ID","type","scm:Polity")
