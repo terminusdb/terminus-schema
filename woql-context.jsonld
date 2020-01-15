@@ -48,6 +48,7 @@
   "length" : {"@type" : "@id"},
   "concat" : {"@type" : "@id"},
   "hash" : {"@type" : "@id"},
+  "substring" : {"@type" : "@id"},
   "idgen" : {"@type" : "@id"},
   "typecast" : {"@type" : "@id"},
   "trim" : {"@type" : "@id"},
