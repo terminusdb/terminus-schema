@@ -295,3 +295,158 @@ terminus:owl
   rdfs:label "OWL"@en ;
   rdfs:comment "Schema encoding - Web Ontology Langauge"@en ;
   a terminus:DocumentEncoding.
+
+terminus:Local
+  a owl:Class ;
+  rdfs:comment "A local repository location"@en ;
+  rdfs:label "Local"@en ;
+  rdfs:subClassOf terminus:Repository .
+
+terminus:Remote
+  a owl:Class ;
+  rdfs:comment "A Remote location"@en ;
+  rdfs:label "Remote"@en ;
+  rdfs:subClassOf terminus:Repository .
+
+terminus:RemoteURLRestriction
+  a owl:Restriction ;
+  rdfs:comment "Remote URL restriction maintaining exactly one link"@en ;
+  rdfs:label ""@en ;
+  owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  owl:onProperty terminus:remote_url .
+
+terminus:Repository
+  a owl:Class ;
+  rdfs:comment "A repository"@en ;
+  rdfs:label "Repository"@en ;
+  rdfs:subClassOf tcs:Document .
+
+terminus:RepositoryHeadRestriction
+  a owl:Restriction ;
+  rdfs:comment "We can have no more than one head for a repository."@en ;
+  rdfs:label ""@en ;
+  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  owl:onProperty terminus:repository_head .
+
+terminus:remote_url
+  a owl:DatatypeProperty ;
+  rdfs:comment "The URI associated with a remote."@en ;
+  rdfs:domain terminus:Remote ;
+  rdfs:label "uri"@en ;
+  rdfs:range xdd:url .
+
+terminus:repository_head
+  a owl:DatatypeProperty ;
+  rdfs:comment "A 20byte identifier of the layer associated with the repository graph."@en ;
+  rdfs:domain terminus:Repository ;
+  rdfs:label "head"@en ;
+  rdfs:range xsd:string .
+
+terminus:AuthorRestriction
+  a owl:Restriction ;
+  rdfs:comment "Only one author per commit allowed"@en ;
+  rdfs:label "Author restriction"@en ;
+  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  owl:onProperty terminus:author .
+
+terminus:Branch
+  a owl:Class ;
+  rdf:subtypeOf terminus:Ref ;
+  rdfs:comment "This is a repo branch"@en ;
+  rdfs:label "Branch"@en .
+
+terminus:Commit
+  a owl:Class ;
+  rdf:subtypeOf terminus:Entity ;
+  rdfs:comment "This is a commit for a database"@en ;
+  rdfs:label "Commit"@en .
+
+terminus:CommitParentRestriction
+  a owl:Restriction ;
+  rdfs:comment "Commit has no more than 1 parent"@en ;
+  rdfs:label "Commit Parent restriction"@en ;
+  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  owl:onProperty terminus:parent .
+
+terminus:Graph
+  a owl:Class ;
+  rdf:subtypeOf terminus:Entity ;
+  rdfs:comment "This is a graph for a database"@en ;
+  rdfs:label "Commit"@en .
+
+terminus:Ref
+  a owl:Class ;
+  rdf:subtypeOf terminus:Entity ;
+  rdfs:comment "This is a ref for a commit"@en ;
+  rdfs:label "Ref"@en .
+
+terminus:RefRestriction
+  a owl:Restriction ;
+  rdfs:comment "Exactly one commit"@en ;
+  rdfs:label "Exactly one commit"@en ;
+  owl:cardinality "1"^^xsd:nonNegativeInteger ;
+  owl:onProperty terminus:ref_commit .
+
+terminus:Tag
+  a owl:Class ;
+  rdf:subtypeOf terminus:Ref ;
+  rdfs:comment "This is a tag for a commit"@en ;
+  rdfs:label "Tag"@en .
+
+terminus:TimestampRestriction
+  a owl:Restriction ;
+  rdfs:comment "Only one timestamp per commit allowed"@en ;
+  rdfs:label "Timestamp restriction"@en ;
+  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  owl:onProperty terminus:commit_timestamp .
+
+terminus:author
+  a owl:ObjectProperty ;
+  rdfs:comment "Author of a commit"@en ;
+  rdfs:domain terminus:Commit ;
+  rdfs:label "Author"@en ;
+  rdfs:range terminus:Agent .
+
+terminus:commit_layer_id
+  a owl:DatatypeProperty ;
+  rdfs:comment "The layer id associated with a commit - a 20 character number"@en ;
+  rdfs:domain terminus:Commit ;
+  rdfs:label "layer id"@en ;
+  rdfs:range xsd:string .
+
+terminus:commit_timestamp
+  a owl:DatatypeProperty ;
+  rdfs:comment "UNIX timestamp of the date and time of the commit"@en ;
+  rdfs:domain terminus:Commit ;
+  rdfs:label "Date and time"@en ;
+  rdfs:range xsd:integer .
+
+terminus:head
+  a owl:ObjectProperty ;
+  rdfs:comment "The head of a branch"@en ;
+  rdfs:domain terminus:Branch ;
+  rdfs:label "head"@en ;
+  rdfs:range terminus:Commit ;
+  owl:subPropertyOf terminus:ref_commit .
+
+terminus:parent
+  a owl:ObjectProperty ;
+  rdfs:comment "The parent of a commit"@en ;
+  rdfs:domain terminus:Commit ;
+  rdfs:label "parent"@en ;
+  rdfs:range terminus:Commit .
+
+terminus:ref_commit
+  a owl:ObjectProperty ;
+  rdfs:comment "The commit associated with a ref"@en ;
+  rdfs:domain terminus:Ref ;
+  rdfs:label "commit"@en ;
+  rdfs:range terminus:Commit .
+
+terminus:ref_identifier
+  a owl:DatatypeProperty ;
+  rdfs:comment "The identifier associated with a ref"@en ;
+  rdfs:domain terminus:Ref ;
+  rdfs:label "identifier"@en ;
+  rdfs:range xsd:string .
+
