@@ -205,6 +205,13 @@ terminus:Database
   a owl:Class ;
   rdfs:subClassOf terminus:Resource .
 
+terminus:database_repository
+  rdfs:label "Repository"@en ;
+  rdfs:comment "The repository management graph reference "@en ;
+  a owl:DatatypePropery ;
+  rdfs:range xsd:string ;
+  rdfs:domain terminus:Database .
+
 terminus:allow_origin
   rdfs:label "Allow Requests from"@en ;
   rdfs:comment "Specify which domains can access this database from the web. Set to \"*\" for universal access. Sets the HTTP Access-Control-Allow-Origin header. "@en ;
@@ -218,33 +225,12 @@ terminus:Server
   a owl:Class ;
   rdfs:subClassOf terminus:Resource .
 
-terminus:schema
-  a owl:DatatypeProperty ;
-  rdfs:label "schema"@en ;
-  rdfs:comment "A schema graph associated with the given database. All schema graphs are unioned."@en ;    
-  rdfs:domain terminus:Database ;
-  rdfs:range xsd:string .
-
-terminus:instance
-  a owl:DatatypeProperty ;
-  rdfs:label "document"@en ;
-  rdfs:comment "A document / instance graph associated with the given database. All instance graphs are unioned"@en ;
-  rdfs:domain terminus:Database ;
-  rdfs:range xsd:string .
-
-terminus:inference
-  a owl:DatatypeProperty ;
-  rdfs:label "inference"@en ;
-  rdfs:comment "An inference graph associated with the given database. All inference graphs are unioned"@en ;
-  rdfs:domain terminus:Database ;
-  rdfs:range xsd:string .
-
 terminus:APIUpdate
   a owl:Class;
   rdfs:label "API Update"@en;
   rdfs:comment "A document that amounts to an update request, sent to the API"@en.
 
-terminus:id
+ terminus:id
   a owl:DatatypeProperty ;
   rdfs:label "id"@en ;
   rdfs:comment "The universal identifier of the underlying asset of a given resource."@en ;
@@ -257,7 +243,7 @@ terminus:document
   rdfs:comment "The document being updated"@en;
   rdfs:domain terminus:APIUpdate;
   rdfs:range tcs:Entity.
-  
+
 terminus:user_key_hash
   a owl:DatatypeProperty;
   rdfs:label "User Key"@en;
@@ -279,14 +265,14 @@ terminus:DocumentEncoding
    terminus:frame
    terminus:jsonld
    terminus:owl
- ) .  
+ ) .
 
 terminus:frame
   rdfs:label "Frame"@en ;
   rdfs:comment "A document encoded as a JSON frame (complete with all available meta-data about its type)"@en ;
   a terminus:DocumentEncoding.
 
-terminus:jsonld`
+terminus:jsonld
   rdfs:label "JSON LD"@en ;
   rdfs:comment "Basic JSON-LD document encoding"@en ;
   a terminus:DocumentEncoding.
@@ -351,13 +337,34 @@ terminus:AuthorRestriction
 
 terminus:Branch
   a owl:Class ;
-  rdf:subtypeOf terminus:Ref ;
+  rdf:subClassOf terminus:Ref ;
   rdfs:comment "This is a repo branch"@en ;
   rdfs:label "Branch"@en .
 
+terminus:instance
+  a owl:ObjectProperty ;
+  rdfs:comment "An instance graph of a branch"@en ;
+  rdfs:domain terminus:Branch ;
+  rdfs:label "instance"@en ;
+  rdfs:range terminus:Graph .
+
+terminus:schema
+  a owl:ObjectProperty ;
+  rdfs:comment "A schema graph of a branch"@en ;
+  rdfs:domain terminus:Branch ;
+  rdfs:label "schema"@en ;
+  rdfs:range terminus:Graph .
+
+terminus:inference
+  a owl:ObjectProperty ;
+  rdfs:comment "An inference graph of a branch"@en ;
+  rdfs:domain terminus:Branch ;
+  rdfs:label "inference"@en ;
+  rdfs:range terminus:Graph .
+
 terminus:Commit
   a owl:Class ;
-  rdf:subtypeOf terminus:Entity ;
+  rdf:subClassOf terminus:Document, terminus:CommitParentRestriction, terminus:CommitTimestampRestriction, terminus:CommitAuthorRestriction ;
   rdfs:comment "This is a commit for a database"@en ;
   rdfs:label "Commit"@en .
 
@@ -370,13 +377,28 @@ terminus:CommitParentRestriction
 
 terminus:Graph
   a owl:Class ;
-  rdf:subtypeOf terminus:Entity ;
+  rdf:subClassOf terminus:Ref, terminus:GraphHeadRestriction ;
   rdfs:comment "This is a graph for a database"@en ;
   rdfs:label "Commit"@en .
 
+terminus:head
+    a owl:ObjectProperty ;
+  owl:subPropertyOf terminus:ref_commit ;
+  rdfs:comment "The head of a graph"@en ;
+  rdfs:domain terminus:Graph ;
+  rdfs:label "head"@en ;
+  rdfs:range terminus:Commit .
+
+terminus:GraphHeadRestriction
+  a owl:Restriction ;
+  rdfs:comment "A graph can only have 1 or 0 heads"@en ;
+  rdfs:label "Graph Head Restriction"@en ;
+  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+  owl:onProperty terminus:head .
+
 terminus:Ref
   a owl:Class ;
-  rdf:subtypeOf terminus:Entity ;
+  rdf:subClassOf terminus:Document, terminus:RefRestriction ;
   rdfs:comment "This is a ref for a commit"@en ;
   rdfs:label "Ref"@en .
 
@@ -389,11 +411,11 @@ terminus:RefRestriction
 
 terminus:Tag
   a owl:Class ;
-  rdf:subtypeOf terminus:Ref ;
+  rdf:subClassOf terminus:Ref ;
   rdfs:comment "This is a tag for a commit"@en ;
   rdfs:label "Tag"@en .
 
-terminus:TimestampRestriction
+terminus:CommitTimestampRestriction
   a owl:Restriction ;
   rdfs:comment "Only one timestamp per commit allowed"@en ;
   rdfs:label "Timestamp restriction"@en ;
@@ -406,6 +428,13 @@ terminus:author
   rdfs:domain terminus:Commit ;
   rdfs:label "Author"@en ;
   rdfs:range terminus:Agent .
+
+terminus:CommitAuthorRestriction
+  a owl:Restriction ;
+  rdfs:comment "Only one timestamp per commit allowed"@en ;
+  rdfs:label "Timestamp restriction"@en ;
+  owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+  owl:onProperty terminus:author .
 
 terminus:commit_layer_id
   a owl:DatatypeProperty ;
@@ -420,14 +449,6 @@ terminus:commit_timestamp
   rdfs:domain terminus:Commit ;
   rdfs:label "Date and time"@en ;
   rdfs:range xsd:integer .
-
-terminus:head
-  a owl:ObjectProperty ;
-  rdfs:comment "The head of a branch"@en ;
-  rdfs:domain terminus:Branch ;
-  rdfs:label "head"@en ;
-  rdfs:range terminus:Commit ;
-  owl:subPropertyOf terminus:ref_commit .
 
 terminus:parent
   a owl:ObjectProperty ;
@@ -449,4 +470,25 @@ terminus:ref_identifier
   rdfs:domain terminus:Ref ;
   rdfs:label "identifier"@en ;
   rdfs:range xsd:string .
+
+terminus:RepositoryMetadata
+  a owl:Class ;
+  rdf:subClassOf tcs:Document ;
+  rdfs:comment "This is a metadata class"@en ;
+  rdfs:label "Tag"@en .
+
+terminus:repository_size
+    a owl:DatatypeProperty ;
+    rdfs:comment "The size of a repository in bytes"@en ;
+    rdfs:label "size"@en ;
+    rdfs:domain terminus:RepositoryMetadata ;
+    rdfs:range xsd:nonNegativeInteger .
+
+terminus:repository_triples
+    a owl:DatatypeProperty ;
+    rdfs:comment "The number of triples in the repository"@en ;
+    rdfs:label "triples"@en ;
+    rdfs:domain terminus:RepositoryMetadata ;
+    rdfs:range xsd:nonNegativeInteger .
+
 
