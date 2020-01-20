@@ -208,7 +208,7 @@ terminus:Database
 terminus:database_repository
   rdfs:label "Repository"@en ;
   rdfs:comment "The repository management graph reference "@en ;
-  a owl:DatatypePropery ;
+  a owl:DatatypeProperty ;
   rdfs:range xsd:string ;
   rdfs:domain terminus:Database .
 
@@ -478,17 +478,17 @@ terminus:RepositoryMetadata
   rdfs:label "Tag"@en .
 
 terminus:repository_size
-    a owl:DatatypeProperty ;
-    rdfs:comment "The size of a repository in bytes"@en ;
-    rdfs:label "size"@en ;
-    rdfs:domain terminus:RepositoryMetadata ;
-    rdfs:range xsd:nonNegativeInteger .
+  a owl:DatatypeProperty ;
+  rdfs:comment "The size of a repository in bytes"@en ;
+  rdfs:label "size"@en ;
+  rdfs:domain terminus:RepositoryMetadata ;
+  rdfs:range xsd:nonNegativeInteger .
 
 terminus:repository_triples
-    a owl:DatatypeProperty ;
-    rdfs:comment "The number of triples in the repository"@en ;
-    rdfs:label "triples"@en ;
-    rdfs:domain terminus:RepositoryMetadata ;
-    rdfs:range xsd:nonNegativeInteger .
+  a owl:DatatypeProperty ;
+  rdfs:comment "The number of triples in the repository"@en ;
+  rdfs:label "triples"@en ;
+  rdfs:domain terminus:RepositoryMetadata ;
+  rdfs:range xsd:nonNegativeInteger .
 
 

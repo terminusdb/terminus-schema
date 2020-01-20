@@ -21,6 +21,7 @@
   "desc" : {"@type" : "@id"},
   "and" : {"@type" : "@id"},
   "or" : {"@type" : "@id"},
+  "with" : {"@type" : "@id"},
   "triple" : {"@type" : "@id"},
   "quad" : {"@type" : "@id"},
   "delete_triple" : {"@type" : "@id"},
