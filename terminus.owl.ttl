@@ -206,9 +206,9 @@ terminus:Database
   a owl:Class ;
   rdfs:subClassOf terminus:Resource .
 
-terminus:database_repository
-  rdfs:label "Repository"@en ;
-  rdfs:comment "The repository management graph reference "@en ;
+terminus:database_name
+  rdfs:label "Database Name"@en ;
+  rdfs:comment "The database name which is used as a reference to the repository graph"@en ;
   a owl:DatatypeProperty ;
   rdfs:range xsd:string ;
   rdfs:domain terminus:Database .
@@ -341,6 +341,13 @@ terminus:Branch
   rdf:subClassOf terminus:Ref ;
   rdfs:comment "This is a repo branch"@en ;
   rdfs:label "Branch"@en .
+
+terminus:branch_name
+  a owl:DatatypeProperty ;
+  rdfs:comment "Name of a branch"@en ;
+  rdfs:domain terminus:Branch ;
+  rdfs:label "name"@en ;
+  rdfs:range xsd:string .
 
 terminus:instance
   a owl:ObjectProperty ;
@@ -492,35 +499,4 @@ terminus:repository_triples
   rdfs:domain terminus:RepositoryMetadata ;
   rdfs:range xsd:nonNegativeInteger .
 
-terminus:token
-  a owl:ObjectProperty;
-  rdfs:label "Token"@en;
-  rdfs:comment "A tokenized URL - the URL will not be saved in the database, only the token."@en;
-  rdfs:range terminus:Token;
-  rdfs:domain terminus:Database. 
 
-terminus:default_branch_id
-  a owl:DatatypeProperty;
-  rdfs:label "Default Branch ID"@en;
-  rdfs:comment "The ID of the default branch in the database - default is main"@en;
-  rdfs:range xsd:string;
-  rdfs:domain terminus:Database. 
-
-terminus:Token
-  a owl:Class;
-  rdfs:label "Token"@en;
-  rdfs:comment "A tokenized URL - the URL will not be saved in the database, only the token."@en.
-
-terminus:token_prefix
-  a owl:DatatypeProperty ;
-  rdfs:comment "The prefix that will be used to refer to this token"@en ;
-  rdfs:label "Prefix"@en ;
-  rdfs:domain terminus:Token ;
-  rdfs:range xsd:string .
-
-terminus:token_url
-  a owl:DatatypeProperty ;
-  rdfs:comment "The full URL that will be substitued for this token"@en ;
-  rdfs:label "Full URL"@en ;
-  rdfs:domain terminus:Token ;
-  rdfs:range xsd:anyURI .
